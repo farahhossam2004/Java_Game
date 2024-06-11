@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "Java_Game_ed49caf5",
+            "vmArgs": "--module-path \"E:\\javafx-sdk-22\\lib\" --add-modules javafx.controls,javafx.fxml",
+            "args": ""
+        }
+    ]
+}
