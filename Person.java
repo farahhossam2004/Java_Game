@@ -1,5 +1,8 @@
 public class Person {
     
+    
+    private static int idcounter=1;
+
     String Name;
     
     int Score;
@@ -7,7 +10,7 @@ public class Person {
     int maxLvl;
 
     Person(String name){
-        this.Name=name;
+        this.Name=name+(++idcounter);
     }
 
  // Getters

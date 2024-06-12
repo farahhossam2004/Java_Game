@@ -4,6 +4,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+
 public class Main extends Application{
     public static void main(String[] args) {
         launch(args);
@@ -14,8 +15,8 @@ public class Main extends Application{
         
         Parent root = FXMLLoader.load(getClass().getResource("Main.fxml")); // test
         Scene scene = new Scene(root);
-        stage.setResizable(false);
         stage.setScene(scene);
+        stage.setResizable(true);
         stage.show();
     }
 }
