@@ -109,12 +109,12 @@
                </stops>
             </LinearGradient>
          </textFill>
-         <effect>
-            <Bloom threshold="0.92" />
-         </effect>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+         <effect>
+            <Bloom threshold="0.89" />
+         </effect>
       </Button>
       
    </children>

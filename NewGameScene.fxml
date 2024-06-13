@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.SepiaTone?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.paint.Color?>
@@ -15,28 +17,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="NewGameSceneController">
    <children>
       <MediaView fx:id="mediaview" fitHeight="650.0" fitWidth="900.0" layoutX="-117.0" />
-      <Label layoutX="199.0" layoutY="66.0" text="Enter Your Name">
-         <font>
-            <Font name="Berlin Sans FB" size="40.0" />
-         </font>
-         <textFill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="0.8333333134651184" blue="1.0" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </textFill>
-      </Label>
-      <Button contentDisplay="CENTER" layoutX="294.0" layoutY="273.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="102.0" text="Done">
+      <Button id="yellow" contentDisplay="CENTER" layoutX="287.0" layoutY="266.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="116.0" stylesheets="@stylesheet.css" text="Done">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="19.0" />
          </font>
@@ -63,7 +44,7 @@
          </font>
       </TextField>
       <Separator layoutX="159.0" layoutY="147.0" prefHeight="2.0" prefWidth="348.0" />
-      <Button contentDisplay="CENTER" layoutX="532.0" layoutY="379.0" mnemonicParsing="false" onAction="#SwitchtoLevelScene" prefHeight="41.0" prefWidth="102.0" text="To Levels">
+      <Button id="WM" contentDisplay="CENTER" layoutX="532.0" layoutY="379.0" mnemonicParsing="false" onAction="#SwitchtoLevelScene" prefHeight="41.0" prefWidth="102.0" stylesheets="@Styling.css" text="To Levels">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="19.0" />
          </font>
@@ -83,8 +64,11 @@
                </stops>
             </LinearGradient>
          </textFill>
+         <effect>
+            <Bloom threshold="0.72" />
+         </effect>
       </Button>
-      <Button contentDisplay="CENTER" layoutX="56.0" layoutY="379.0" mnemonicParsing="false" onAction="#SwitchToHomeScene" prefHeight="41.0" prefWidth="102.0" text="Home">
+      <Button id="WM" contentDisplay="CENTER" layoutX="56.0" layoutY="379.0" mnemonicParsing="false" onAction="#SwitchToHomeScene" prefHeight="41.0" prefWidth="102.0" stylesheets="@Styling.css" text="Home">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="19.0" />
          </font>
@@ -104,7 +88,31 @@
                </stops>
             </LinearGradient>
          </textFill>
+         <effect>
+            <SepiaTone />
+         </effect>
       </Button>
+      <Label layoutX="159.0" layoutY="79.0" prefHeight="60.0" prefWidth="371.0" text="Enter Your Name">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="44.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9368420839309692" green="0.10756335407495499" blue="0.10756335407495499" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.10920000076293945" green="0.5199999809265137" blue="0.365168035030365" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
    </children>
    <cursor>
       <Cursor fx:constant="HAND" />
