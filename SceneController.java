@@ -32,25 +32,25 @@ public class SceneController {
     }
 
 
-    // New Game Scene 
+    // // New Game Scene 
 
-    public void SwitchtoNewGameScene(ActionEvent e)throws IOException{
-        root = FXMLLoader.load(getClass().getResource("NewGameScene.fxml"));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene= new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+    // public void SwitchtoNewGameScene(ActionEvent e)throws IOException{
+    //     root = FXMLLoader.load(getClass().getResource("NewGameScene.fxml"));
+    //     stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+    //     scene= new Scene(root);
+    //     stage.setScene(scene);
+    //     stage.show();
+    // }
 
-    //Load A Game Scene 
+    // //Load A Game Scene 
 
-    public void SwitchtoLoadGameScene(ActionEvent e)throws IOException{
-        root = FXMLLoader.load(getClass().getResource(""));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene= new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+    // public void SwitchtoLoadGameScene(ActionEvent e)throws IOException{
+    //     root = FXMLLoader.load(getClass().getResource(""));
+    //     stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+    //     scene= new Scene(root);
+    //     stage.setScene(scene);
+    //     stage.show();
+    // }
 
 //===========================================================================
 

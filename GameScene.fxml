@@ -13,8 +13,9 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="686.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SceneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="686.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameSceneControlller">
    <children>
+   <MediaView fx:id="ChooseGameMedia" fitHeight="550.0" fitWidth="900.0" layoutX="-38.0" layoutY="-8.0" styleClass="Styling" />
       <Label layoutX="171.0" layoutY="37.0" prefHeight="60.0" prefWidth="331.0" text="Choose A Game">
          <font>
             <Font name="Berlin Sans FB Bold" size="44.0" />
@@ -64,7 +65,7 @@
             <Glow />
          </effect>
       </Button>
-      <Button id="shiny" layoutX="409.0" layoutY="211.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="194.0" stylesheets="@stylesheet.css" text="Load Game">
+      <Button id="shiny" layoutX="409.0" layoutY="211.0" mnemonicParsing="false" onAction="#SwitchtoLoadGameScene" prefHeight="58.0" prefWidth="194.0" stylesheets="@stylesheet.css" text="Load Game">
          <font>
             <Font name="Bodoni MT Black Italic" size="17.0" />
          </font>
@@ -115,6 +116,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <MediaView fx:id="ChooseGameMedia" fitHeight="550.0" fitWidth="900.0" layoutX="-38.0" layoutY="-8.0" styleClass="Styling" />
+      
    </children>
 </AnchorPane>
