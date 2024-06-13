@@ -12,7 +12,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="homeback" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="479.0" prefWidth="805.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SceneController">
+<AnchorPane fx:id="homeback" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="799.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SceneController">
    <children>
    <MediaView fx:id="mediaview" fitHeight="497.0" fitWidth="805.0" styleClass="Styling" />
       <Button id="WM" fx:id="WM" layoutX="51.0" layoutY="218.0" mnemonicParsing="false" onAction="#SwitchTGameScene" prefHeight="43.0" prefWidth="117.0" stylesheets="@Styling.css" text="Play" textFill="WHITE">

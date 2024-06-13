@@ -7,6 +7,7 @@
 <?import javafx.scene.effect.Bloom?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.media.MediaView?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
@@ -114,5 +115,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <MediaView fx:id="ChooseGameMedia" fitHeight="550.0" fitWidth="900.0" layoutX="-38.0" layoutY="-8.0" styleClass="Styling" />
    </children>
 </AnchorPane>
