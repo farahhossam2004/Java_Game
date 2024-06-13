@@ -15,6 +15,12 @@ public class Main extends Application{
         
         Parent root = FXMLLoader.load(getClass().getResource("Main.fxml")); // test
         Scene scene = new Scene(root);
+        
+        // styling css
+        String css = this.getClass().getResource("Styling.css").toExternalForm();
+
+        scene.getStylesheets().add(css);
+        
         stage.setScene(scene);
         stage.setResizable(true);
         stage.show();

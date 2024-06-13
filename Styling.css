@@ -1,0 +1,21 @@
+#WM{
+    -fx-background-image: url('Images//Watermelon_btn.jpg');
+    -fx-background-size: cover;
+    -fx-background-position: center;
+    -fx-color:black;
+    
+}
+
+#WM:hover{
+    -fx-background-image: url('Images//RedWater_png.jpg');
+    -fx-background-size: cover;
+    -fx-background-position: center;
+    -fx-transform: scale(.95);
+    -fx-color: rgb(0, 0, 0);
+
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 5, 0.0, 0, 1);
+    -fx-text-fill: #ffffff;
+}
+
+
+

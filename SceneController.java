@@ -26,6 +26,7 @@ public class SceneController {
         stage.show();
     }
 
+
     // New Game Scene 
 
     public void SwitchtoNewGameScene(ActionEvent e)throws IOException{
