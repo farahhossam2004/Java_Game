@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,16 +15,19 @@ public class Main extends Application{
     @Override
     public void start(Stage stage) throws Exception {
         
-        Parent root = FXMLLoader.load(getClass().getResource("Main.fxml")); // test
+        try {
+        Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
         Scene scene = new Scene(root);
-        
-        // styling css
-        String css = this.getClass().getResource("Styling.css").toExternalForm();
-
-        scene.getStylesheets().add(css);
-        
         stage.setScene(scene);
         stage.setResizable(true);
         stage.show();
+
+        // styling css
+        String css = this.getClass().getResource("Styling.css").toExternalForm();
+        scene.getStylesheets().add(css);
+
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
     }
 }

@@ -1,10 +1,15 @@
+import java.io.File;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 
 public class SceneController {
@@ -103,4 +108,40 @@ public class SceneController {
         stage.show();
     }
 
+//============================================================
+
+    // video background
+    @FXML
+    private MediaView mediaview;
+
+    public void initialize() {
+
+        try {
+            String videoPath = "./Images/first.mp4";
+            String videoPath2 = "./Images/last.mp4";
+
+            Media media = new Media(new File(videoPath).toURI().toString());
+            Media media2 = new Media(new File(videoPath2).toURI().toString());
+
+            MediaPlayer mediaPlayer = new MediaPlayer(media);
+            MediaPlayer mediaPlayer2 = new MediaPlayer(media2);
+
+            mediaPlayer.setCycleCount(1);
+            mediaPlayer2.setCycleCount(MediaPlayer.INDEFINITE);
+            
+            mediaPlayer.setOnEndOfMedia(() -> 
+            {
+                mediaPlayer.dispose();
+                mediaview.setMediaPlayer(mediaPlayer2);
+                mediaPlayer2.play();
+
+            });
+            
+            mediaview.setMediaPlayer(mediaPlayer);
+            mediaPlayer.play();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
