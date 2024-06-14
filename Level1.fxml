@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Level1Controller">
+   <children>
+      <ImageView fitHeight="415.0" fitWidth="600.0" layoutY="-7.0" pickOnBounds="true">
+         <image>
+            <Image url="@Images/background.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="58.0" fitWidth="65.0" layoutX="14.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/score.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="score" layoutX="104.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="125.8869423866272">
+         <font>
+            <Font size="31.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.949999988079071" green="0.07233480364084244" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="0.970370352268219" blue="0.970370352268219" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Text>
+      <Text layoutX="11.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="High Score:">
+         <font>
+            <Font size="25.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0" startX="0.3749999990968994">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.6312247644683715">
+                     <color>
+                        <Color red="0.507614254951477" green="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.507614254951477" green="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Text>
+      <Text layoutX="146.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="50" wrappingWidth="40.58746337890625">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.949999988079071" green="0.07233480364084244" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="0.970370352268219" blue="0.970370352268219" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="75.0" fitWidth="61.0" layoutX="431.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/alarm.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="timer" layoutX="502.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="107.38909912109375">
+         <font>
+            <Font size="33.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.949999988079071" green="0.07233480364084244" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="0.970370352268219" blue="0.970370352268219" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Text>
+   </children>
+</AnchorPane>

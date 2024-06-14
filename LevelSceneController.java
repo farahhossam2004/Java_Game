@@ -51,4 +51,13 @@ public class LevelSceneController {
         stage.setScene(scene);
         stage.show();
     }
+
+    //============================================================
+    public void SwitchToLevel1Scene(ActionEvent e)throws IOException{
+        root = FXMLLoader.load(getClass().getResource("Level1.fxml"));
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene= new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }
