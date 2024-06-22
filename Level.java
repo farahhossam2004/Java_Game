@@ -8,6 +8,9 @@ public class Level {
 
     int LevelScore;
 
+    Person CurrentPerson;
+
+
     Level(int lvltime,int lvlscore){
         this.id=++LevelsCounter;
         this.LevelScore=lvlscore;
@@ -26,6 +29,12 @@ public class Level {
         return this.LevelTime;
     }
 
-
+    public Person GetCurrPerson(){
+        return this.CurrentPerson;
+    }
+    
+    public void SetCurrentPerson(Person Person){
+        this.CurrentPerson=Person;
+    }
 
 }

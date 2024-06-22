@@ -1,7 +1,7 @@
 public class Person {
     
     
-    private static int idcounter=1;
+    private static int idcounter=0;
 
     String Name;
     
