@@ -146,7 +146,7 @@
             <SepiaTone />
          </effect>
       </Button>
-      <Button id="WM" layoutX="232.0" layoutY="98.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="174.0" stylesheets="@Styling.css" text="Level 2" textAlignment="CENTER">
+      <Button id="WM" layoutX="232.0" layoutY="98.0" mnemonicParsing="false" onAction="#SwitchToLevel2Scene" prefHeight="35.0" prefWidth="174.0" stylesheets="@Styling.css" text="Level 2" textAlignment="CENTER">
          <font>
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font>

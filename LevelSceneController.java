@@ -53,8 +53,20 @@ public class LevelSceneController {
     }
 
     //============================================================
+    // button to level 1 scene
+
     public void SwitchToLevel1Scene(ActionEvent e)throws IOException{
         root = FXMLLoader.load(getClass().getResource("Level1.fxml"));
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene= new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    //=====================================================
+    // button to level 2 scene 
+    public void SwitchToLevel2Scene(ActionEvent e)throws IOException{
+        root = FXMLLoader.load(getClass().getResource("Level2.fxml"));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene= new Scene(root);
         stage.setScene(scene);
