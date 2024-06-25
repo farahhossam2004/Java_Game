@@ -8,9 +8,9 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane fx:id="imageContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Level2Controller">
+<AnchorPane fx:id="imageContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Level2Controller">
    <children>
-      <ImageView fx:id="FruitImage" fitHeight="93.0" fitWidth="75.0" layoutX="263.0" layoutY="408.0" onMouseClicked="#Mouseclicked" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="FruitImage" fitHeight="93.0" fitWidth="75.0" layoutX="263.0" layoutY="400.0" onMouseClicked="#Mouseclicked" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/fruits/apple.png" />
          </image>
