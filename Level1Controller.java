@@ -25,7 +25,7 @@ import javafx.util.Duration;
 
 public class Level1Controller implements Initializable {
 
-    Time time = new Time(0,0);
+    Time time = new Time(0,5);
     
     Level level = new Level(1, 0);
 
@@ -39,6 +39,8 @@ public class Level1Controller implements Initializable {
 
     @FXML
     private AnchorPane imageContainer;
+
+    
     
     //==================================================================================
     // back button 
@@ -184,11 +186,11 @@ public class Level1Controller implements Initializable {
     Timeline timeline = new Timeline(
         new KeyFrame(Duration.seconds(1),
             e -> {
+                time.oneSecondPassed();
+                timer.setText(time.getLevelTime());
                 if(time.getLevelTime().equals("0:0")){
                     System.out.println("Level End!"); 
                 }
-                time.oneSecondPassed();
-                timer.setText(time.getLevelTime());
             } 
     ));
 
