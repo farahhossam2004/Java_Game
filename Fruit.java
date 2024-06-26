@@ -1,22 +1,21 @@
-public abstract class Fruit {
+public class Fruit {
     
-    String Fruitname;
-    
-    int FruitScore;
 
-    Fruit(String name){
-        this.Fruitname = name ;
+
+
+    public static int GetAppleScore(){
+        return 6;
     }
 
-    public String GetFruitname(){
-        return this.Fruitname;
+    public static int GetKiwiScore(){
+        return 6;
     }
 
-    public int GetFruitScore(){
-        return this.FruitScore;
+    public static int GetbananaScore(){
+        return 8;
     }
 
-    public void SetFruitScore(int score){
-        this.FruitScore=score;
+    public static int GetBombScore(){
+        return -10;
     }
 }

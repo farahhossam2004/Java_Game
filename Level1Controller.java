@@ -25,7 +25,14 @@ import javafx.util.Duration;
 
 public class Level1Controller implements Initializable {
 
-    Time time = new Time(0,10);
+    Time time = new Time(0,0);
+    
+    Level level = new Level(1, 0);
+
+    int UserScore = 0 ; 
+
+    @FXML
+    private Text score;
 
     @FXML
     private Text timer;
@@ -33,11 +40,13 @@ public class Level1Controller implements Initializable {
     @FXML
     private AnchorPane imageContainer;
     
+    //==================================================================================
+    // back button 
+
     private Stage stage;
     private Scene scene;
     private Parent root;
-
-    // Back button
+    
     @FXML
     void back(ActionEvent e) throws IOException {
         root = FXMLLoader.load(getClass().getResource("LevelScene.fxml"));
@@ -47,8 +56,11 @@ public class Level1Controller implements Initializable {
         stage.show();
     }
 
+    //====================================================================================
+    // random class to generate fruit in random places 
     Random random = new Random();
 
+    // array of the fruits image
     Image[] fruitimages = {
         new Image(getClass().getResourceAsStream("images/fruits/apple.png")),
         new Image(getClass().getResourceAsStream("images/fruits/banana.png")),
@@ -64,19 +76,22 @@ public class Level1Controller implements Initializable {
         new Image(getClass().getResourceAsStream("images/sliced_fruit/kiwi.png")),
     };
 
+    //=================================================================================
+    // initialize method
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         timer.setText(time.getLevelTime());
-
         timeline.setCycleCount((time.getMin() * 60) + time.getSec());
         timeline.play();
         
-        generateFruitImages(10);
+        generateFruitImages(10); // to generate 10 image 
         
     }
-
+    //=======================================================================================
+    // generate method to generate random images of fruits 
     private void generateFruitImages(int numberOfImages) {
         for (int i = 0; i < numberOfImages; i++) {
+
             ImageView imageView = new ImageView();
             int index = random.nextInt(fruitimages.length);
             imageView.setImage(fruitimages[index]);
@@ -89,6 +104,8 @@ public class Level1Controller implements Initializable {
             imageView.setX(random.nextInt(600) - 37); // Adjust for image width
             imageView.setY(447); // Adjust for image height
 
+            
+            // to change the image of fruit into sliced one and fade in case of mouse clicking 
             imageView.setOnMouseClicked(event -> {
                 
                 imageView.setImage(SlicedFruitimages[index]);
@@ -102,6 +119,32 @@ public class Level1Controller implements Initializable {
                     imageContainer.getChildren().remove(imageView);
                 });
                 fade.play();
+        
+
+                // to calculate your score and from sliced image index will calculate it apple 0 banana 1 bomb 2 kiwi 3
+                // index based on the array of images to get the score u need from the fruit class 
+
+                switch (index) {
+                    case 0:
+                        UserScore = UserScore+Fruit.GetAppleScore();
+                        score.setText(String.valueOf(UserScore));
+                        break;
+                    case 1:
+                        UserScore = UserScore+Fruit.GetbananaScore();
+                        score.setText(String.valueOf(UserScore));
+                        break;
+                    case 2:
+                        UserScore = UserScore+Fruit.GetBombScore();
+                        score.setText(String.valueOf(UserScore));
+                        break;
+                    case 3:
+                        UserScore = UserScore+Fruit.GetKiwiScore();
+                        score.setText(String.valueOf(UserScore));
+                        break;
+                    default:
+                        break;
+                }
+
             });
 
             imageContainer.getChildren().add(imageView);
@@ -142,7 +185,7 @@ public class Level1Controller implements Initializable {
         new KeyFrame(Duration.seconds(1),
             e -> {
                 if(time.getLevelTime().equals("0:0")){
-                    System.out.println("Level End!");
+                    System.out.println("Level End!"); 
                 }
                 time.oneSecondPassed();
                 timer.setText(time.getLevelTime());
