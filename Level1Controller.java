@@ -1,5 +1,7 @@
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.ResourceBundle;
 
@@ -30,6 +32,7 @@ public class Level1Controller implements Initializable {
     Level level = new Level(1, 0);
 
     int UserScore = 0 ; 
+    boolean pause = false;
 
     @FXML
     private Text score;
@@ -41,7 +44,9 @@ public class Level1Controller implements Initializable {
     private AnchorPane imageContainer;
 
     
-    
+    // List to save the generated fruit images
+    private List<ImageView> generatedFruitImages = new ArrayList<>();
+
     //==================================================================================
     // back button 
 
@@ -89,27 +94,26 @@ public class Level1Controller implements Initializable {
         generateFruitImages(10); // to generate 10 image 
         
     }
-    //=======================================================================================
-    // generate method to generate random images of fruits 
+//=======================================================================================
+
+// generate method to generate random images of fruits 
     private void generateFruitImages(int numberOfImages) {
         for (int i = 0; i < numberOfImages; i++) {
-
-            ImageView imageView = new ImageView();
+//=======================
+            ImageView imageView = new ImageView(); //create new imagevie object anf set it randomlly
             int index = random.nextInt(fruitimages.length);
             imageView.setImage(fruitimages[index]);
-
+//=======================
             // Set smaller size for each image
             imageView.setFitWidth(80); // Set width to 50 pixels
             imageView.setFitHeight(80); // Set height to 50 pixels
-
+//========================
             // Set random position for each image
             imageView.setX(random.nextInt(600) - 37); // Adjust for image width
             imageView.setY(447); // Adjust for image height
-
-            
+//=========================
             // to change the image of fruit into sliced one and fade in case of mouse clicking 
             imageView.setOnMouseClicked(event -> {
-                
                 imageView.setImage(SlicedFruitimages[index]);
                 FadeTransition fade = new FadeTransition();
                 fade.setNode(imageView);
@@ -120,12 +124,10 @@ public class Level1Controller implements Initializable {
                 fade.setOnFinished(fadeFinishedEvent -> {
                     imageContainer.getChildren().remove(imageView);
                 });
-                fade.play();
-        
-
+                fade.play(); //fade the clicked image
+//==========================
                 // to calculate your score and from sliced image index will calculate it apple 0 banana 1 bomb 2 kiwi 3
-                // index based on the array of images to get the score u need from the fruit class 
-
+                // index based on the array of images to get the score u need from the fruit class
                 switch (index) {
                     case 0:
                         UserScore = UserScore+Fruit.GetAppleScore();
@@ -146,16 +148,17 @@ public class Level1Controller implements Initializable {
                     default:
                         break;
                 }
-
             });
-
+//============================
+            //add the image to the anchor pane and the list of images
             imageContainer.getChildren().add(imageView);
-
+            generatedFruitImages.add(imageView);
+//=========================== 
             // Apply transitions
-            applyTransitions(imageView, i * 500); // Adding a delay based on the index
+            applyTransitions(imageView, i * 1000); // Adding a delay based on the index
         }
     }
-
+//==========================================================================
     private void applyTransitions(ImageView imageView, int delay) {
         RotateTransition rotate = new RotateTransition();
         TranslateTransition transition = new TranslateTransition();
@@ -178,11 +181,21 @@ public class Level1Controller implements Initializable {
         rotate.setInterpolator(Interpolator.LINEAR);
         rotate.setByAngle(360);
         rotate.setDelay(Duration.millis(delay));
-
+        
         rotate.play();
         transition.play();
+
     }
 
+//==================================================================================
+    //function to stop the game and the images
+    private void GameEnd(int numberfruitimages){
+        for (ImageView imageView : generatedFruitImages) {
+            imageContainer.getChildren().remove(imageView);
+        }
+        generatedFruitImages.clear(); // Clear the list after removing the images
+    }
+//=================================================================================
     Timeline timeline = new Timeline(
         new KeyFrame(Duration.seconds(1),
             e -> {
@@ -190,6 +203,7 @@ public class Level1Controller implements Initializable {
                 timer.setText(time.getLevelTime());
                 if(time.getLevelTime().equals("0:0")){
                     System.out.println("Level End!"); 
+                    GameEnd(10);
                 }
             } 
     ));
