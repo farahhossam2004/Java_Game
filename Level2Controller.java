@@ -16,13 +16,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
@@ -117,8 +115,8 @@ public class Level2Controller implements Initializable {
         timeline.play();
         
         Level2Score.setText(String.valueOf(levelScore));
-        generateFruitImages(10); // to generate 10 image 
-        generateBombImages(5); // deh elzodtha
+        generateFruitImages(12); // to generate 10 image 
+        generateBombImages(4); // deh elzodtha
     }
 //=======================================================================================
 
@@ -277,7 +275,7 @@ private void generateBombImages(int numberOfImages) {
                 timer.setText(time.getLevelTime());
                 if(time.getLevelTime().equals("0:0")){
                     System.out.println("Level End!"); 
-                    GameEnd(15);
+                    GameEnd(12);
 
                     // if user passed the level
                     if(UserScore >= levelScore)

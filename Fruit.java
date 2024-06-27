@@ -22,5 +22,8 @@ public class Fruit {
     public static int GetOrangeScore(){
         return 3;
     }
-    
+
+    public static int GetWaterMelonScore(){
+        return 4;
+    }
 }
