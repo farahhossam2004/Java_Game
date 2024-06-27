@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="imageContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="435.0" prefWidth="698.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Level2Controller">
+<AnchorPane fx:id="imageContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="435.0" prefWidth="698.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Level4Controller">
    <children>
       <ImageView fitHeight="454.0" fitWidth="713.0" layoutY="-7.0" pickOnBounds="true">
          <image>
@@ -71,7 +71,7 @@
             </LinearGradient>
          </fill>
       </Text>
-      <Text fx:id="Level2Score" layoutX="158.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="50" wrappingWidth="40.58746337890625">
+      <Text fx:id="Level3Score" layoutX="153.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100" wrappingWidth="72.0">
          <fill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>

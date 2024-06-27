@@ -29,7 +29,7 @@ import javafx.util.Duration;
 
 public class Level1Controller implements Initializable {
 
-    Time time = new Time(0,10);
+    Time time = new Time(1,00);
     
     
 
