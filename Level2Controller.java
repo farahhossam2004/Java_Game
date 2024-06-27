@@ -65,7 +65,7 @@ public class Level2Controller implements Initializable {
     private Scene scene;
     private Parent root;
 
-    public void setStage(Stage stagee) {
+    public static void setStage(Stage stagee) {
         stage = stagee;
     }
     
@@ -291,7 +291,7 @@ private void generateBombImages(int numberOfImages) {
                         
                         LevelPassedAlert(t -> {
                             try {
-                                SwitchToLevel2Scene(t);
+                                SwitchToLevel3Scene(t);
                             } catch (IOException e1) {
                                 e1.printStackTrace();
                             }
@@ -305,7 +305,7 @@ private void generateBombImages(int numberOfImages) {
                     else{
                         LevelFailedAlert(t -> {
                             try {
-                                TryAgainLevel1(t);
+                                TryAgainLevel2(t);
                             } catch (Exception e1) {
                                 e1.printStackTrace();
                             }
@@ -403,9 +403,9 @@ private void generateBombImages(int numberOfImages) {
 
     // Switch to Level 2
 
-    public void SwitchToLevel2Scene(ActionEvent e)throws IOException{
+    public void SwitchToLevel3Scene(ActionEvent e)throws IOException{
 
-        root = FXMLLoader.load(getClass().getResource("Level2.fxml"));
+        root = FXMLLoader.load(getClass().getResource("Level3.fxml"));
         scene= new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -413,11 +413,11 @@ private void generateBombImages(int numberOfImages) {
 
     //=====================================================
 
-    // Try Again Level 1
+    // Try Again Level 2
 
-    public void TryAgainLevel1(ActionEvent e)throws IOException{
+    public void TryAgainLevel2(ActionEvent e)throws IOException{
 
-        root = FXMLLoader.load(getClass().getResource("Level1.fxml"));
+        root = FXMLLoader.load(getClass().getResource("Level2.fxml"));
         scene= new Scene(root);
         stage.setScene(scene);
         stage.show();
