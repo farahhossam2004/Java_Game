@@ -31,10 +31,11 @@ public class Level1Controller implements Initializable {
 
     Time time = new Time(0,10);
     
-    int levelScore = 10;
+    int levelScore = 30;
     int UserScore = 0 ; 
     boolean pause = false;
-
+//===========================================================
+// Fxml Components
     @FXML
     private Text score;
 
@@ -44,6 +45,10 @@ public class Level1Controller implements Initializable {
     @FXML
     private AnchorPane imageContainer;
 
+    @FXML
+    private Text Level1Score;
+
+//=================================================================
     
     // List to save the generated fruit images
     private List<ImageView> generatedFruitImages = new ArrayList<>();
@@ -96,6 +101,7 @@ public class Level1Controller implements Initializable {
         timeline.setCycleCount((time.getMin() * 60) + time.getSec());
         timeline.play();
         
+        Level1Score.setText(String.valueOf(levelScore));
         generateFruitImages(10); // to generate 10 image 
         
     }

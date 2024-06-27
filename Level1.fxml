@@ -71,7 +71,7 @@
             </LinearGradient>
          </fill>
       </Text>
-      <Text layoutX="158.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10" wrappingWidth="40.58746337890625">
+      <Text fx:id="Level1Score" layoutX="158.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10" wrappingWidth="40.58746337890625">
          <fill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>

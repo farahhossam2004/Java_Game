@@ -4,15 +4,15 @@ public class Fruit {
 
 
     public static int GetAppleScore(){
-        return 6;
+        return 4;
     }
 
     public static int GetKiwiScore(){
-        return 6;
+        return 5;
     }
 
     public static int GetbananaScore(){
-        return 8;
+        return 6;
     }
 
     public static int GetBombScore(){
