@@ -118,6 +118,7 @@ public class LevelSceneController {
     public void SwitchToLevel5Scene(ActionEvent e)throws IOException{
         root = FXMLLoader.load(getClass().getResource("Level5.fxml"));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        Level5Controller.setStage(stage);
         scene= new Scene(root);
         stage.setScene(scene);
         stage.show();

@@ -295,7 +295,7 @@ private void generateBombImages(int numberOfImages) {
                         
                         LevelPassedAlert(t -> {
                             try {
-                                SwitchToLevel4Scene(t);
+                                SwitchToLevel6Scene(t);
                             } catch (IOException e1) {
                                 e1.printStackTrace();
                             }
@@ -309,7 +309,7 @@ private void generateBombImages(int numberOfImages) {
                     else{
                         LevelFailedAlert(t -> {
                             try {
-                                TryAgainLevel3(t);
+                                TryAgainLevel5(t);
                             } catch (Exception e1) {
                                 e1.printStackTrace();
                             }
@@ -405,11 +405,11 @@ private void generateBombImages(int numberOfImages) {
 
     //==================================================
 
-    // Switch to Level 4
+    // Switch to Level 6
 
-    public void SwitchToLevel4Scene(ActionEvent e)throws IOException{
+    public void SwitchToLevel6Scene(ActionEvent e)throws IOException{
 
-        root = FXMLLoader.load(getClass().getResource("Level4.fxml"));
+        root = FXMLLoader.load(getClass().getResource("LevelScene.fxml"));
         scene= new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -417,11 +417,11 @@ private void generateBombImages(int numberOfImages) {
 
     //=====================================================
 
-    // Try Again Level 3
+    // Try Again Level 5
 
-    public void TryAgainLevel3(ActionEvent e)throws IOException{
+    public void TryAgainLevel5(ActionEvent e)throws IOException{
 
-        root = FXMLLoader.load(getClass().getResource("Level3.fxml"));
+        root = FXMLLoader.load(getClass().getResource("Level5.fxml"));
         scene= new Scene(root);
         stage.setScene(scene);
         stage.show();
