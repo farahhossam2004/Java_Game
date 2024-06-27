@@ -26,4 +26,8 @@ public class Fruit {
     public static int GetWaterMelonScore(){
         return 4;
     }
+
+    public static int GetPinneappleScore(){
+        return 5;
+    }
 }
