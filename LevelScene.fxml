@@ -254,5 +254,26 @@
             <Bloom threshold="0.75" />
          </effect>
       </Button>
+      <Label fx:id="score" layoutX="343.0" layoutY="459.0" text="score">
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color green="1.0" blue="0.46666666865348816" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="23.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

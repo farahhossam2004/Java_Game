@@ -2,19 +2,12 @@ public class Level {
     
     private final int id ;
 
-    private static int LevelsCounter = 0 ; 
-
-    int LevelTime;
-
     int LevelScore;
 
-    Person CurrentPerson;
 
-
-    Level(int lvltime,int lvlscore){
-        this.id=++LevelsCounter;
+    Level(int lvlscore , int id ){
+        this.id=id;
         this.LevelScore=lvlscore;
-        this.LevelTime=lvltime;
     }
 
     public int GetLevelID(){
@@ -25,16 +18,9 @@ public class Level {
         return this.LevelScore;
     }
 
-    public int GetLevelTime(){
-        return this.LevelTime;
-    }
 
-    public Person GetCurrPerson(){
-        return this.CurrentPerson;
-    }
-    
-    public void SetCurrentPerson(Person Person){
-        this.CurrentPerson=Person;
+    public void setLevelScore(int score){
+        this.LevelScore = score;
     }
 
 }
