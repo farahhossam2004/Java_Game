@@ -62,6 +62,7 @@ public class Level1Controller implements Initializable {
     
     @FXML
     void back(ActionEvent e) throws IOException {
+        timeline.stop();
         root = FXMLLoader.load(getClass().getResource("LevelScene.fxml"));
         scene = new Scene(root);
         stage.setScene(scene);
@@ -336,7 +337,7 @@ public class Level1Controller implements Initializable {
     }
 
     //=====================================================
-    
+
     // Try Again Level 1
 
     public void TryAgainLevel1(ActionEvent e)throws IOException{
