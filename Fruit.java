@@ -18,4 +18,9 @@ public class Fruit {
     public static int GetBombScore(){
         return -10;
     }
+
+    public static int GetOrangeScore(){
+        return 3;
+    }
+    
 }
