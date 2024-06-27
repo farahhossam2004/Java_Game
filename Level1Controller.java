@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.ResourceBundle;
-
+import java.util.function.Consumer;
 import javafx.animation.FadeTransition;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
@@ -15,19 +15,21 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 public class Level1Controller implements Initializable {
 
-    Time time = new Time(0,5);
+    Time time = new Time(0,10);
     
     int UserScore = 0 ; 
     boolean pause = false;
@@ -48,14 +50,18 @@ public class Level1Controller implements Initializable {
     //==================================================================================
     // back button 
 
-    private Stage stage;
+    private static Stage stage;
     private Scene scene;
     private Parent root;
+
+    public void setStage(Stage stagee) {
+        stage = stagee;
+    }
     
     @FXML
     void back(ActionEvent e) throws IOException {
+        timeline.stop();
         root = FXMLLoader.load(getClass().getResource("LevelScene.fxml"));
-        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -202,8 +208,142 @@ public class Level1Controller implements Initializable {
                 if(time.getLevelTime().equals("0:0")){
                     System.out.println("Level End!"); 
                     GameEnd(10);
+
+                    // if user passed the level
+                    if(UserScore >= level.GetLevelScore())
+                    {
+                        LevelPassedAlert(t -> {
+                            try {
+                                SwitchToLevel2Scene(t);
+                            } catch (IOException e1) {
+                                e1.printStackTrace();
+                            }
+                        }, t -> {try {
+                            back(t);
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }});
+                    }
+                    // else failed
+                    else{
+                        LevelFailedAlert(t -> {
+                            try {
+                                TryAgainLevel1(t);
+                            } catch (Exception e1) {
+                                e1.printStackTrace();
+                            }
+                        }, t -> {
+                            try {
+                                back(t);
+                            } catch (Exception e2) {
+                                e2.printStackTrace();
+                            }
+                        });
+                    }
                 }
             } 
     ));
+
+    //=========================================
+    
+    // Level Passed Alert 
+
+    public void LevelPassedAlert(Consumer<ActionEvent> action, Consumer <ActionEvent> action2)
+    {
+        try {
+            FXMLLoader loaderr = new FXMLLoader(getClass().getResource("./PassAlert.fxml"));
+            Parent roott = loaderr.load();
+            
+
+            PassAlertController alertController = loaderr.getController();
+            alertController.setButtonAction(action); //set next level butoon action as it differs from class to class
+            alertController.setBackAction(action2);  // set back button action
+            
+            Stage stagee = new Stage();  // new stage for the alert 
+            stagee.initModality(Modality.APPLICATION_MODAL); // deh 3shan akhly lma l alert yzhr l user my2drsh ydos 3la ay scene tany 8er lma l alert y2fl 
+            // 3shan agbro ydos 3l yama next level yama back 
+            stagee.initStyle(StageStyle.UNDECORATED); // hide the title bar
+            alertController.setStage(stagee); // b3ml set ll stage 3shan fl class l hnak 2a2dr a2olo y2fl l alert lma ndos 3l button
+
+            stagee.setScene(new Scene(roott));
+            stagee.setResizable(false);
+            stagee.setX(500);
+            stagee.setY(250);
+
+            // 3shan lma yzhr l alert akhly l scene bta3t l level l warah tb2a faded keda y3ne l brightness bta3taha watya 
+            ColorAdjust colorAdjust = new ColorAdjust(); 
+            colorAdjust.setBrightness(-0.5);
+            stage.getScene().getRoot().setEffect(colorAdjust);
+
+            // lma l alert y2fl l brightness bta3t l level scene trg3 zy ma kant
+            stagee.setOnHidden(e -> stage.getScene().getRoot().setEffect(null));
+
+            stagee.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //==========================================
+    
+    // Level Failed Alert 
+    
+    public void LevelFailedAlert(Consumer<ActionEvent> action, Consumer<ActionEvent> action2)
+    {
+        try {
+            FXMLLoader loaderr = new FXMLLoader(getClass().getResource("./FailAlert.fxml"));
+            Parent roott = loaderr.load();
+            
+            FailAlertController failAlert = loaderr.getController();
+            failAlert.setTryAgainAction(action);  // set Try again button action bec it differs from class to class 
+            failAlert.setBackAction(action2);  // set back button action
+            
+            Stage stagee = new Stage();
+            stagee.initModality(Modality.APPLICATION_MODAL);
+            stagee.initStyle(StageStyle.UNDECORATED);
+            failAlert.setStage(stagee);
+            
+            stagee.setScene(new Scene(roott));
+            stagee.setResizable(false);
+            stagee.setX(500);
+            stagee.setY(250);
+
+            ColorAdjust colorAdjust = new ColorAdjust();
+            colorAdjust.setBrightness(-0.5);
+            stage.getScene().getRoot().setEffect(colorAdjust);
+
+            stagee.setOnHidden(e -> stage.getScene().getRoot().setEffect(null));
+
+            stagee.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //==================================================
+
+    // Switch to Level 2
+
+    public void SwitchToLevel2Scene(ActionEvent e)throws IOException{
+
+        root = FXMLLoader.load(getClass().getResource("Level2.fxml"));
+        scene= new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    //=====================================================
+
+    // Try Again Level 1
+
+    public void TryAgainLevel1(ActionEvent e)throws IOException{
+
+        root = FXMLLoader.load(getClass().getResource("Level1.fxml"));
+        scene= new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
 }
