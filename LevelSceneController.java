@@ -52,6 +52,7 @@ public class LevelSceneController {
 
     //Back to home Scene Button 
     public void SwitchToHomeScene(ActionEvent e)throws IOException{
+        PersonManagment.SetplayingPerson(null);
         root = FXMLLoader.load(getClass().getResource("main.fxml"));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene= new Scene(root);

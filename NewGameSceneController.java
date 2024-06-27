@@ -54,26 +54,12 @@ public class NewGameSceneController {
         }
     }
 
-    //===========================================================================
-
-    // Go To Level Scene
-    public void SwitchtoLevelScene(ActionEvent e)throws IOException{
-        if(PersonManagment.GetPlayingPerson()==null){ // <=========================== Feroooo alert hna kman y2oly lazm ad5l esm el awl 3shan al3b
-            System.out.println("enter a name first to play " );
-        }
-        else{
-        root = FXMLLoader.load(getClass().getResource("LevelScene.fxml"));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene= new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-}
 
 //=================================================
 
     //Back to home Scene Button 
     public void SwitchToHomeScene(ActionEvent e)throws IOException{
+        PersonManagment.SetplayingPerson(null);
         root = FXMLLoader.load(getClass().getResource("main.fxml"));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene= new Scene(root);
@@ -84,7 +70,7 @@ public class NewGameSceneController {
     //============================================================
 
     
-    public void Submit(ActionEvent event) {
+    public void Submit(ActionEvent event) throws IOException {
         name = TextNameArea.getText().trim(); // Trim 3shan a remove el white spaces
     
         if (name.isEmpty()) { // 3awz alert hna yzhr y2olo d5l name el awl mysbsh el field fady  <====================== Ferooo
@@ -96,10 +82,12 @@ public class NewGameSceneController {
             Person person = new Person(name); // b create l object mn no3 person b esm eld5lto
             PersonManagment.GetAllPersons().add(person); // b add el person dh ll array bta3 el persons f person managment
             PersonManagment.SetplayingPerson(person); // b set b2a el playing person el3ndy blna lsa md5lo dh 
-        } else {
-            NameLabel.setText("Already signed in."); // <============================= alert hna kman y2olo enk msgl signed in lazm y3ml exit aw mmkn afkrlha f fekra tanya 
+
+            root = FXMLLoader.load(getClass().getResource("LevelScene.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene= new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         }
     }
-    
-
 }
