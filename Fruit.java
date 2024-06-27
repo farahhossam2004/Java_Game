@@ -30,4 +30,12 @@ public class Fruit {
     public static int GetPinneappleScore(){
         return 5;
     }
+
+    public static int GetGreenGrapesScore(){
+        return 5;
+    }
+
+    public static int GetRedGrapesScore(){
+        return 5;
+    }
 }
