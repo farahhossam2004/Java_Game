@@ -29,8 +29,6 @@ public class Level1Controller implements Initializable {
 
     Time time = new Time(0,5);
     
-    Level level = new Level(1, 0);
-
     int UserScore = 0 ; 
     boolean pause = false;
 

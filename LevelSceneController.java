@@ -1,12 +1,12 @@
 import java.io.File;
 import java.io.IOException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -22,7 +22,14 @@ public class LevelSceneController {
     @FXML
     private MediaView mediaview;
 
+    @FXML
+    private Label NameLabel;
+
+    
+
     public void initialize() {
+        
+        NameLabel.setText(PersonManagment.GetPlayingPerson().GetPersonName()); // b set el label bta3y b esm el playng player
 
         try {
             String videoPath = "./Images/withouttext.mp4";

@@ -43,7 +43,7 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <Label layoutX="100.0" layoutY="14.0" prefHeight="32.0" prefWidth="134.0" text="Name">
+      <Label fx:id="NameLabel" layoutX="100.0" layoutY="14.0" prefHeight="32.0" prefWidth="134.0" text="Name">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="28.0" />
          </font>

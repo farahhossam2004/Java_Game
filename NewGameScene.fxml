@@ -17,7 +17,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="NewGameSceneController">
    <children>
       <MediaView fx:id="mediaview" fitHeight="650.0" fitWidth="900.0" layoutX="-117.0" />
-      <Button id="yellow" contentDisplay="CENTER" layoutX="287.0" layoutY="266.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="116.0" stylesheets="@stylesheet.css" text="Done">
+      <Button id="yellow" fx:id="DoneButton" contentDisplay="CENTER" layoutX="287.0" layoutY="266.0" mnemonicParsing="false" onAction="#Submit" prefHeight="58.0" prefWidth="116.0" stylesheets="@stylesheet.css" text="Done">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="19.0" />
          </font>
@@ -38,7 +38,7 @@
             </LinearGradient>
          </textFill>
       </Button>
-      <TextField layoutX="182.0" layoutY="219.0" prefHeight="27.0" prefWidth="302.0">
+      <TextField fx:id="TextNameArea" layoutX="182.0" layoutY="219.0" prefHeight="27.0" prefWidth="302.0">
          <font>
             <Font size="13.0" />
          </font>
@@ -92,7 +92,7 @@
             <SepiaTone />
          </effect>
       </Button>
-      <Label layoutX="159.0" layoutY="79.0" prefHeight="60.0" prefWidth="371.0" text="Enter Your Name">
+      <Label fx:id="NameLabel" layoutX="159.0" layoutY="79.0" prefHeight="60.0" prefWidth="371.0" text="Enter Your Name">
          <font>
             <Font name="Berlin Sans FB Bold" size="44.0" />
          </font>

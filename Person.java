@@ -9,6 +9,8 @@ public class Person {
     
     int maxLvl;
 
+    
+
     Person(String name){
         this.Name=name+(++idcounter);
     }
@@ -27,6 +29,7 @@ public class Person {
         return this.maxLvl;
     }
 
+    
 
  // Setters
 
@@ -37,5 +40,7 @@ public class Person {
     public void SetPersonMaxLevel(int maxlvl){
         this.maxLvl = maxlvl;
     }
+
+    
 
 }
