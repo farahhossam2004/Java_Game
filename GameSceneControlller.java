@@ -56,8 +56,13 @@ public class GameSceneControlller {
     // New Game Scene 
 
     public void SwitchtoNewGameScene(ActionEvent e)throws IOException{
-        root = FXMLLoader.load(getClass().getResource("NewGameScene.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("./NewGameScene.fxml"));
+        root = loader.load();
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+
+        NewGameSceneController controller = loader.getController();
+        controller.setStage(stage);
+
         scene= new Scene(root);
         stage.setScene(scene);
         stage.show();
