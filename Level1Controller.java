@@ -31,6 +31,8 @@ public class Level1Controller implements Initializable {
 
     Time time = new Time(0,10);
     
+    
+
     int levelScore = 30;
     int UserScore = 0 ; 
     boolean pause = false;
@@ -219,6 +221,13 @@ public class Level1Controller implements Initializable {
                     // if user passed the level
                     if(UserScore >= levelScore)
                     {
+                        Level level = new Level(UserScore, 1);
+
+                        //========================
+                        PersonManagment.addormodifyLevel(PersonManagment.GetPlayingPerson(), level);
+                        PersonManagment.CalculateScore(PersonManagment.GetPlayingPerson());
+                        //========================
+                        
                         LevelPassedAlert(t -> {
                             try {
                                 SwitchToLevel2Scene(t);

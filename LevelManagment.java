@@ -4,8 +4,8 @@ public class LevelManagment {
     
     private static ArrayList<Level> LevelsArray = new ArrayList<>();
 
-    public static int AddLevel(int time , int score){
-        GetAllLevels().add(new Level(time,score));
+    public static int AddLevel(int id , int score){
+        GetAllLevels().add(new Level(score,id));
         return 1;
     }
 

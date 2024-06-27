@@ -25,12 +25,14 @@ public class LevelSceneController {
     @FXML
     private Label NameLabel;
 
-    
+    @FXML
+    private Label score;
+
 
     public void initialize() {
         
         NameLabel.setText(PersonManagment.GetPlayingPerson().GetPersonName()); // b set el label bta3y b esm el playng player
-
+        score.setText(String.valueOf(PersonManagment.GetPlayingPerson().GetPersonScore()));
         try {
             String videoPath = "./Images/withouttext.mp4";
 

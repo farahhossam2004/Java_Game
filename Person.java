@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Person {
     
     
@@ -5,11 +7,11 @@ public class Person {
 
     String Name;
     
-    int Score;
+    int Score = 0 ;
     
     int maxLvl;
 
-    
+    private  ArrayList<Level> PersonLevelsArray = new ArrayList<>();
 
     Person(String name){
         this.Name=name+(++idcounter);
@@ -41,6 +43,9 @@ public class Person {
         this.maxLvl = maxlvl;
     }
 
-    
+    public ArrayList<Level> GetAllPersonLevels()
+    {
+        return this.PersonLevelsArray;
+    }
 
 }
