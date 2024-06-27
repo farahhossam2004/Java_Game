@@ -31,6 +31,7 @@ public class Level1Controller implements Initializable {
 
     Time time = new Time(0,10);
     
+    int levelScore = 10;
     int UserScore = 0 ; 
     boolean pause = false;
 
@@ -210,7 +211,7 @@ public class Level1Controller implements Initializable {
                     GameEnd(10);
 
                     // if user passed the level
-                    if(UserScore >= level.GetLevelScore())
+                    if(UserScore >= levelScore)
                     {
                         LevelPassedAlert(t -> {
                             try {
