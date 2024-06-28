@@ -6,6 +6,8 @@ public class PersonManagment {
 
     static Person playingPerson;
 
+    
+
     public static Person GetPlayingPerson(){
         return playingPerson;
     }
@@ -45,6 +47,15 @@ public class PersonManagment {
         person.SetPersonScore(score);;
     } 
 //===============================================================
+public static double PersonProgress(Person person , int numberoflevels){
+    int progress = 0;
+    for(int i = 0 ; i < person.GetAllPersonLevels().size();i++){ //
+        if(person.GetAllPersonLevels().get(i).GetLevelID()>progress)
+            progress = person.GetAllPersonLevels().get(i).GetLevelID();
+    }
+    return (double)progress / numberoflevels ;
+}
+
     public static ArrayList<Person> GetAllPersons() {
         return PersonArray;
     }

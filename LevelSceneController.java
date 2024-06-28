@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -28,10 +29,25 @@ public class LevelSceneController {
     @FXML
     private Label score;
 
+    @FXML
+    private ProgressBar LevelsProgressbar;
+
+    @FXML
+    private Label Percentage;
+
+
+    double personProgrss = PersonManagment.PersonProgress(PersonManagment.GetPlayingPerson(),5);
 
     public void initialize() {
         
+        //=================================================================================
+        //progress bar
+        LevelsProgressbar.setStyle("-fx-accent: #00FF00;");
+        LevelsProgressbar.setProgress(personProgrss);
+        Percentage.setText(Integer.toString((int)Math.round(personProgrss*100)) +" %");
+        //=================================================================================
         NameLabel.setText(PersonManagment.GetPlayingPerson().GetPersonName()); // b set el label bta3y b esm el playng player
+        //=================================================================================
         score.setText(String.valueOf(PersonManagment.GetPlayingPerson().GetPersonScore()));
         try {
             String videoPath = "./Images/withouttext.mp4";
