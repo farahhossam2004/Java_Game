@@ -404,6 +404,7 @@ private void generateBombImages(int numberOfImages) {
 
     public void SwitchToLevel5Scene(ActionEvent e)throws IOException{
 
+        Level5Controller.setStage(stage);
         root = FXMLLoader.load(getClass().getResource("Level5.fxml"));
         scene= new Scene(root);
         stage.setScene(scene);

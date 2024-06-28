@@ -403,6 +403,7 @@ private void generateBombImages(int numberOfImages) {
 
     public void SwitchToLevel3Scene(ActionEvent e)throws IOException{
 
+        Level3Controller.setStage(stage);
         root = FXMLLoader.load(getClass().getResource("Level3.fxml"));
         scene= new Scene(root);
         stage.setScene(scene);

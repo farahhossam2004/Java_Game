@@ -50,3 +50,49 @@
     -fx-blend-mode: overlay; /* Add overlay effect if desired */
 }
 
+
+.tableview {
+    -fx-background-color: #f4f4f4;
+    -fx-border-color: #d6d6d6;
+    -fx-border-width: 1px;
+}
+
+.tableview .column-header-background {
+    -fx-background-color: #d6d6d6;
+}
+
+.tableview .column-header, .tableview .filler {
+    -fx-size: 30px;
+}
+
+.tableview .column-header .label {
+    -fx-text-fill: #333;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.tableview .table-row-cell {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d6d6d6;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.tableview .table-row-cell:filled:selected {
+    -fx-background-color: #cce5ff;
+}
+
+.tableview .table-cell {
+    -fx-padding: 10px;
+    -fx-font-size: 12px;
+    -fx-text-fill: #333;
+}
+
+.tableview .table-cell:filled:selected {
+    -fx-background-color: #cce5ff;
+    -fx-text-fill: #000;
+}
+
+.tableview .table-cell:empty {
+    -fx-background-color: #f4f4f4;
+}
+

@@ -71,7 +71,7 @@ public class GameSceneControlller {
     //Load A Game Scene 
 
     public void SwitchtoLoadGameScene(ActionEvent e)throws IOException{
-        root = FXMLLoader.load(getClass().getResource(""));
+        root = FXMLLoader.load(getClass().getResource("./LoadGame.fxml"));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene= new Scene(root);
         stage.setScene(scene);

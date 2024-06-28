@@ -62,7 +62,7 @@ public class Level1Controller implements Initializable {
     private Scene scene;
     private Parent root;
 
-    public void setStage(Stage stagee) {
+    public static void setStage(Stage stagee) {
         stage = stagee;
     }
     
@@ -342,7 +342,8 @@ public class Level1Controller implements Initializable {
     // Switch to Level 2
 
     public void SwitchToLevel2Scene(ActionEvent e)throws IOException{
-
+        
+        Level2Controller.setStage(stage);
         root = FXMLLoader.load(getClass().getResource("Level2.fxml"));
         scene= new Scene(root);
         stage.setScene(scene);
