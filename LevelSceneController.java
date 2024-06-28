@@ -86,8 +86,7 @@ public class LevelSceneController {
         root = loader.load();
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
 
-        Level1Controller controller = loader.getController();
-        controller.setStage(stage);
+        Level1Controller.setStage(stage);
         
         scene= new Scene(root);
         stage.setScene(scene);
