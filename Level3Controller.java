@@ -31,7 +31,7 @@ import javafx.util.Duration;
 
 public class Level3Controller implements Initializable {
     
-    Time time = new Time(0,6);
+    Time time = new Time(0,30);
     
     
 
@@ -116,8 +116,8 @@ public class Level3Controller implements Initializable {
         timeline.play();
         
         Level3Score.setText(String.valueOf(levelScore));
-        generateFruitImages(14); // =====================================================> btt3dl  
-        generateBombImages(5); // deh elzodtha
+        generateFruitImages(19); // =====================================================> btt3dl  
+        generateBombImages(6); // deh elzodtha
     }
 //=======================================================================================
 
@@ -134,7 +134,7 @@ public class Level3Controller implements Initializable {
             imageView.setFitHeight(80); // Set height to 50 pixels
 //========================
             // Set random position for each image
-            imageView.setX(random.nextInt(600) - 37); // Adjust for image width
+            imageView.setX(random.nextInt(362) + 132); // Adjust for image width
             imageView.setY(447); // Adjust for image height
 //=========================
             // to change the image of fruit into sliced one and fade in case of mouse clicking 
@@ -199,7 +199,7 @@ private void generateBombImages(int numberOfImages) {
         imageView.setFitHeight(80); // Set height to 50 pixels
 //========================
         // Set random position for each image
-        imageView.setX(random.nextInt(600) - 37); // Adjust for image width
+        imageView.setX(random.nextInt(362) + 132); // Adjust for image width
         imageView.setY(447); // Adjust for image height
 //=========================
         // to change the image of fruit into sliced one and fade in case of mouse clicking 
@@ -244,7 +244,16 @@ private void generateBombImages(int numberOfImages) {
         transition.setNode(imageView);
         transition.setDuration(Duration.millis(2800));
         transition.setCycleCount(TranslateTransition.INDEFINITE);
-        transition.setByX(random.nextInt(maxWidth + 2 * (maxWidth / 3)) - maxWidth / 3);
+        
+        // Check the x position and set the direction of movement
+        if (imageView.getX() > 323) {
+            // Move to the left side
+            transition.setByX(-random.nextInt(maxWidth / 2) - maxWidth / 3);
+        } else {
+            // Move to the right side
+            transition.setByX(random.nextInt(maxWidth / 2) + maxWidth / 3);
+        }
+        
         transition.setByY(-random.nextInt(maxHeight / 2) - maxHeight);
         transition.setAutoReverse(true);
         transition.setDelay(Duration.millis(delay));
@@ -277,7 +286,7 @@ private void generateBombImages(int numberOfImages) {
                 if(time.getLevelTime().equals("0:0")){
                     
                     
-                    GameEnd(14);//==================================================> btt3dllllllll
+                    GameEnd(25);//==================================================> btt3dllllllll
 
                     // if user passed the level
                     if(UserScore >= levelScore)

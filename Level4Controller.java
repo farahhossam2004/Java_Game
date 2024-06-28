@@ -30,7 +30,7 @@ import javafx.util.Duration;
 
 public class Level4Controller implements Initializable  {
     
-    Time time = new Time(0,6);
+    Time time = new Time(0,35);
     
     int levelScore = 100;
     int UserScore = 0 ; 
@@ -85,6 +85,7 @@ public class Level4Controller implements Initializable  {
         new Image(getClass().getResourceAsStream("images/fruits/banana.png")),
         new Image(getClass().getResourceAsStream("images/fruits/pinnable.png")),
         new Image(getClass().getResourceAsStream("images/fruits/orange.png")),
+        new Image(getClass().getResourceAsStream("images/fruits/banana.png")),
     };
 
     // Array of sliced fruits of level 2 
@@ -93,6 +94,7 @@ public class Level4Controller implements Initializable  {
         new Image(getClass().getResourceAsStream("images/sliced_fruit/banana.png")),
         new Image(getClass().getResourceAsStream("images/sliced_fruit/pinnable.png")),
         new Image(getClass().getResourceAsStream("images/sliced_fruit/orange.png")),
+        new Image(getClass().getResourceAsStream("images/sliced_fruit/banana.png")),
     };
 
     // Array of image of bomb 
@@ -115,7 +117,7 @@ public class Level4Controller implements Initializable  {
         
         
         Level4Score.setText(String.valueOf(levelScore));
-        generateFruitImages(18); // =====================================================> btt3dl  
+        generateFruitImages(25); // =====================================================> btt3dl  
         generateBombImages(8); // =====================================> btt3dl 
     }
 //=======================================================================================
@@ -133,7 +135,7 @@ public class Level4Controller implements Initializable  {
             imageView.setFitHeight(80); // Set height to 50 pixels
 //========================
             // Set random position for each image
-            imageView.setX(random.nextInt(600) - 37); // Adjust for image width
+            imageView.setX(random.nextInt(362) + 132); // Adjust for image width
             imageView.setY(447); // Adjust for image height
 //=========================
             // to change the image of fruit into sliced one and fade in case of mouse clicking 
@@ -167,6 +169,10 @@ public class Level4Controller implements Initializable  {
                         break;
                     case 3 : 
                         UserScore = UserScore + Fruit.GetOrangeScore();
+                        score.setText(String.valueOf(UserScore));
+                        break;
+                    case 4 : 
+                        UserScore = UserScore+Fruit.GetbananaScore();
                         score.setText(String.valueOf(UserScore));
                         break;
                     default:
@@ -243,7 +249,16 @@ private void generateBombImages(int numberOfImages) {
         transition.setNode(imageView);
         transition.setDuration(Duration.millis(2700));
         transition.setCycleCount(TranslateTransition.INDEFINITE);
-        transition.setByX(random.nextInt(maxWidth + 2 * (maxWidth / 3)) - maxWidth / 3);
+        
+        // Check the x position and set the direction of movement
+        if (imageView.getX() > 323) {
+            // Move to the left side
+            transition.setByX(-random.nextInt(maxWidth / 2) - maxWidth / 3);
+        } else {
+            // Move to the right side
+            transition.setByX(random.nextInt(maxWidth / 2) + maxWidth / 3);
+        }
+        
         transition.setByY(-random.nextInt(maxHeight / 2) - maxHeight);
         transition.setAutoReverse(true);
         transition.setDelay(Duration.millis(delay));
@@ -276,7 +291,7 @@ private void generateBombImages(int numberOfImages) {
                 if(time.getLevelTime().equals("0:0")){
                     
                     
-                    GameEnd(26);//==================================================> btt3dllllllll
+                    GameEnd(33);//==================================================> btt3dllllllll
 
                     // if user passed the level
                     if(UserScore >= levelScore)

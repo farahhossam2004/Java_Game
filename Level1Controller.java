@@ -183,7 +183,16 @@ public class Level1Controller implements Initializable {
         transition.setNode(imageView);
         transition.setDuration(Duration.millis(3000));
         transition.setCycleCount(TranslateTransition.INDEFINITE);
-        transition.setByX(random.nextInt(maxWidth + 2 * (maxWidth / 3)) - maxWidth / 3);
+        
+        // Check the x position and set the direction of movement
+        if (imageView.getX() > 323) {
+            // Move to the left side
+            transition.setByX(-random.nextInt(maxWidth / 2) - maxWidth / 3);
+        } else {
+            // Move to the right side
+            transition.setByX(random.nextInt(maxWidth / 2) + maxWidth / 3);
+        }
+        
         transition.setByY(-random.nextInt(maxHeight / 2) - maxHeight);
         transition.setAutoReverse(true);
         transition.setDelay(Duration.millis(delay));
