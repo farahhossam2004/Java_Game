@@ -29,13 +29,13 @@ import javafx.util.Duration;
 
 public class Level1Controller implements Initializable {
 
-    Time time = new Time(0,20);
+    Time time = new Time(0,18);
     
     
 
     int levelScore = 30;
     int UserScore = 0 ; 
-    boolean pause = false;
+
 //===========================================================
 // Fxml Components
     @FXML
@@ -87,7 +87,7 @@ public class Level1Controller implements Initializable {
         new Image(getClass().getResourceAsStream("images/fruits/kiwi.png")),
     };
 
-    // Array of sliced fruits of level 2 
+    // Array of sliced fruits of level 1
     Image[] SlicedFruitimages = {
         new Image(getClass().getResourceAsStream("images/sliced_fruit/apple.png")),
         new Image(getClass().getResourceAsStream("images/sliced_fruit/banana.png")),
@@ -104,7 +104,7 @@ public class Level1Controller implements Initializable {
         timeline.play();
         
         Level1Score.setText(String.valueOf(levelScore));
-        generateFruitImages(10); // to generate 10 image 
+        generateFruitImages(9); // to generate 8 fruit image 
     }
 //=======================================================================================
 
@@ -121,7 +121,7 @@ public class Level1Controller implements Initializable {
             imageView.setFitHeight(80); // Set height to 50 pixels
 //========================
             // Set random position for each image
-            imageView.setX(random.nextInt(600) - 37); // Adjust for image width
+            imageView.setX(random.nextInt(362) + 132); // Adjust for image width
             imageView.setY(447); // Adjust for image height
 //=========================
             // to change the image of fruit into sliced one and fade in case of mouse clicking 
@@ -215,7 +215,7 @@ public class Level1Controller implements Initializable {
                 timer.setText(time.getLevelTime());
                 if(time.getLevelTime().equals("0:0")){
                     System.out.println("Level End!"); 
-                    GameEnd(10);
+                    GameEnd(9);
 
                     // if user passed the level
                     if(UserScore >= levelScore)

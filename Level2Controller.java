@@ -30,7 +30,7 @@ import javafx.util.Duration;
 
 public class Level2Controller implements Initializable {
 
-    Time time = new Time(0,6);
+    Time time = new Time(0,20);
     
     
 
@@ -133,7 +133,7 @@ public class Level2Controller implements Initializable {
             imageView.setFitHeight(80); // Set height to 50 pixels
 //========================
             // Set random position for each image
-            imageView.setX(random.nextInt(600) - 37); // Adjust for image width
+            imageView.setX(random.nextInt(254)+178 ); // Adjust for image width
             imageView.setY(447); // Adjust for image height
 //=========================
             // to change the image of fruit into sliced one and fade in case of mouse clicking 
