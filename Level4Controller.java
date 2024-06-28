@@ -113,6 +113,7 @@ public class Level4Controller implements Initializable  {
         timeline.setCycleCount((time.getMin() * 60) + time.getSec());
         timeline.play();
         
+        
         Level4Score.setText(String.valueOf(levelScore));
         generateFruitImages(18); // =====================================================> btt3dl  
         generateBombImages(8); // =====================================> btt3dl 

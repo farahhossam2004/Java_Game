@@ -29,7 +29,7 @@ import javafx.util.Duration;
 
 public class Level1Controller implements Initializable {
 
-    Time time = new Time(1,00);
+    Time time = new Time(0,20);
     
     
 
@@ -105,7 +105,6 @@ public class Level1Controller implements Initializable {
         
         Level1Score.setText(String.valueOf(levelScore));
         generateFruitImages(10); // to generate 10 image 
-        
     }
 //=======================================================================================
 
