@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SettingsController">
+   <children>
+      <Label fx:id="FTitle" layoutX="154.0" layoutY="14.0" prefHeight="80.0" prefWidth="50.0" text="F" textFill="#c8f746">
+         <font>
+            <Font name="Jokerman" size="96.0" />
+         </font>
+      </Label>
+      <Label fx:id="TitleField" layoutX="207.0" layoutY="29.0" prefHeight="136.0" prefWidth="186.0" text="riut" textFill="#c8f746">
+         <font>
+            <Font name="Jokerman" size="85.0" />
+         </font>
+      </Label>
+      <Label fx:id="Ztitle" layoutX="372.0" layoutY="21.0" prefHeight="80.0" prefWidth="50.0" text="Z" textFill="#c8f746">
+         <font>
+            <Font name="Jokerman" size="96.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

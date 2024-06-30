@@ -80,7 +80,7 @@ public class SceneController {
     //Switch to Settings Scene ====> Setting button 
 
     public void SwitchtoSettingsScene(ActionEvent e)throws IOException{
-        root = FXMLLoader.load(getClass().getResource(""));
+        root = FXMLLoader.load(getClass().getResource("Settings.fxml"));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene= new Scene(root);
         stage.setScene(scene);
