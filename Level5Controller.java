@@ -12,6 +12,8 @@ import javafx.animation.KeyFrame;
 import javafx.animation.RotateTransition;
 import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,7 +37,7 @@ public class Level5Controller implements Initializable {
 
     int levelScore = 120;
     int UserScore = 0 ; 
-    boolean pause = false;
+    
 //===========================================================
 // Fxml Components
     @FXML
@@ -139,8 +141,14 @@ public class Level5Controller implements Initializable {
             imageView.setX(random.nextInt(362) + 132); // Adjust for image width
             imageView.setY(447); // Adjust for image height
 //=========================
+
+            // Add a custom property to track if the image has been clicked
+            BooleanProperty isClicked = new SimpleBooleanProperty(false);
+
             // to change the image of fruit into sliced one and fade in case of mouse clicking 
-            imageView.setOnMouseClicked(event -> {
+            imageView.setOnMouseExited(event -> {
+                if(!isClicked.get()){
+                    isClicked.set(true);
                 imageView.setImage(SlicedFruitimages[index]);
                 FadeTransition fade = new FadeTransition();
                 fade.setNode(imageView);
@@ -183,6 +191,7 @@ public class Level5Controller implements Initializable {
                     default:
                         break;
                 }
+            }
             });
 //============================
             //add the image to the anchor pane and the list of images
@@ -213,7 +222,12 @@ private void generateBombImages(int numberOfImages) {
         imageView.setY(447); // Adjust for image height
 //=========================
         // to change the image of fruit into sliced one and fade in case of mouse clicking 
-        imageView.setOnMouseClicked(event -> {
+        // Add a custom property to track if the image has been clicked
+        BooleanProperty isClicked = new SimpleBooleanProperty(false);
+
+        imageView.setOnMouseExited(event -> {
+            if(!isClicked.get()){
+                isClicked.set(true);
             imageView.setImage(SlicedBombimages[0]);
             FadeTransition fade = new FadeTransition();
             fade.setNode(imageView);
@@ -230,6 +244,7 @@ private void generateBombImages(int numberOfImages) {
             // index based on the array of images to get the score u need from the fruit class
             UserScore =UserScore+Fruit.GetBombScore();
             score.setText(String.valueOf(UserScore));
+        }
         });
 //============================
         //add the image to the anchor pane and the list of images

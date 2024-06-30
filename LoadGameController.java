@@ -42,7 +42,7 @@ public class LoadGameController {
     {
         NameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
         scoreColumn.setCellValueFactory(new PropertyValueFactory<>("Score"));
-
+    
         tableview.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);;
 
         ObservableList<Person> persons = FXCollections.observableArrayList(PersonManagment.GetAllPersons());
