@@ -142,9 +142,9 @@ for (int i = 1; i < 6; i++) {
         root = loader.load();
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         // Set the custom cursor
-        Image cursorImage = new Image(getClass().getResourceAsStream("Images/Cursor.png"));
-        ImageCursor customCursor = new ImageCursor(cursorImage);
-        stage.getScene().setCursor(customCursor);
+        // Image cursorImage = new Image(getClass().getResourceAsStream("Images/Cursor.png"));
+        // ImageCursor customCursor = new ImageCursor(cursorImage);
+        // stage.getScene().setCursor(customCursor);
         Level1Controller.setStage(stage);
         
         scene= new Scene(root);

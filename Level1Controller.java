@@ -161,10 +161,12 @@ public class Level1Controller implements Initializable {
                     FruitImages.remove(imageView);
                     
                     if(FruitImages.isEmpty()){
-                        if(UserScore>levelScore)
-                            System.out.println("\nSucces Pass"); //================================> alrtat hnaaa
+                        if(UserScore>=levelScore)
+                            LevelPassed(); //================================> alrtat hnaaa
                         else
-                            System.out.println("\n Failed"); // ===================================> alertat hnnaaaa
+                            LevelFailed(); // ===================================> alertat hnnaaaa
+                    
+                    timeline.stop();
                     }
 
                 });
@@ -312,46 +314,61 @@ private void generateBombImages(int numberOfImages) {
                     // if user passed the level
                     if(UserScore >= levelScore)
                     {
-                        Level level = new Level(UserScore, 1);
-                        
-                        //========================
-                        PersonManagment.addormodifyLevel(PersonManagment.GetPlayingPerson(), level);
-                        PersonManagment.CalculateScore(PersonManagment.GetPlayingPerson());
-                        //========================
-                        
-                        LevelPassedAlert(t -> {
-                            try {
-                                SwitchToLevel2Scene(t);
-                            } catch (IOException e1) {
-                                e1.printStackTrace();
-                            }
-                        }, t -> {try {
-                            back(t);
-                        } catch (IOException e1) {
-                            e1.printStackTrace();
-                        }});
+                        LevelPassed();
                     }
                     // else failed
                     else{
-                        LevelFailedAlert(t -> {
-                            try {
-                                TryAgainLevel1(t);
-                            } catch (Exception e1) {
-                                e1.printStackTrace();
-                            }
-                        }, t -> {
-                            try {
-                                back(t);
-                            } catch (Exception e2) {
-                                e2.printStackTrace();
-                            }
-                        });
+                        LevelFailed();
                     }
                 }
             } 
     ));
 
     //=========================================
+
+    // Level passed Function 
+
+    private void LevelPassed()
+    {
+        Level level = new Level(UserScore, 1);
+            
+            //========================
+            PersonManagment.addormodifyLevel(PersonManagment.GetPlayingPerson(), level);
+            PersonManagment.CalculateScore(PersonManagment.GetPlayingPerson());
+            //========================
+            
+            LevelPassedAlert(t -> {
+                try {
+                    SwitchToLevel2Scene(t);
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            }, t -> {try {
+                back(t);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }});
+    }
+
+    //========================================================
+
+    // Level Failed Function 
+
+    private void LevelFailed(){
+        LevelFailedAlert(t -> {
+            try {
+                TryAgainLevel1(t);
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+        }, t -> {
+            try {
+                back(t);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        });
+    }
     
     // Level Passed Alert 
 

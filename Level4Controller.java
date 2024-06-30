@@ -163,10 +163,11 @@ public class Level4Controller implements Initializable  {
                     FruitImages.remove(imageView); // to remove the fruit from the array of fruit 
                     
                     if(FruitImages.isEmpty()){ // if the array empty and no fruit image left
-                        if(UserScore>levelScore)
-                            System.out.println("\nSucces Pass"); //================================> alrtat hnaaa
+                        if(UserScore>=levelScore)
+                            LevelPassed(); //================================> alrtat hnaaa
                         else
-                            System.out.println("\n Failed"); // ===================================> alertat hnnaaaa
+                            LevelFailed(); // ===================================> alertat hnnaaaa
+                    timeline.stop();
                     }
                 });
                 fade.play(); //fade the clicked image
@@ -327,46 +328,63 @@ private void generateBombImages(int numberOfImages) {
                     // if user passed the level
                     if(UserScore >= levelScore)
                     {
-                        Level level = new Level(UserScore, 4);
-
-                        //========================
-                        PersonManagment.addormodifyLevel(PersonManagment.GetPlayingPerson(), level);
-                        PersonManagment.CalculateScore(PersonManagment.GetPlayingPerson());
-                        //========================
-                        
-                        LevelPassedAlert(t -> {
-                            try {
-                                SwitchToLevel5Scene(t);
-                            } catch (IOException e1) {
-                                e1.printStackTrace();
-                            }
-                        }, t -> {try {
-                            back(t);
-                        } catch (IOException e1) {
-                            e1.printStackTrace();
-                        }});
+                        LevelPassed();
                     }
                     // else failed
                     else{
-                        LevelFailedAlert(t -> {
-                            try {
-                                TryAgainLevel4(t);
-                            } catch (Exception e1) {
-                                e1.printStackTrace();
-                            }
-                        }, t -> {
-                            try {
-                                back(t);
-                            } catch (Exception e2) {
-                                e2.printStackTrace();
-                            }
-                        });
+                        LevelFailed();                   
                     }
                 }
             } 
     ));
 
     //=========================================
+
+    // Level Passed Function 
+
+    private void LevelPassed()
+    {
+        
+        Level level = new Level(UserScore, 4);
+
+        //========================
+        PersonManagment.addormodifyLevel(PersonManagment.GetPlayingPerson(), level);
+        PersonManagment.CalculateScore(PersonManagment.GetPlayingPerson());
+        //========================
+        
+        LevelPassedAlert(t -> {
+            try {
+                SwitchToLevel5Scene(t);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }, t -> {try {
+            back(t);
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }});
+    }
+
+    //=======================================
+
+    // Level Failed Function
+
+    private void LevelFailed()
+    {
+        LevelFailedAlert(t -> {
+            try {
+                TryAgainLevel4(t);
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+        }, t -> {
+            try {
+                back(t);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        });
+    }
     
     // Level Passed Alert 
 
