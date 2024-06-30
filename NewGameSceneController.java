@@ -1,6 +1,5 @@
-import java.io.File;
-import java.io.IOException;
 
+import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,9 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.ColorAdjust;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -23,10 +19,6 @@ public class NewGameSceneController {
     private Stage stage ;
     private Scene scene;
     private Parent root;
-
-     // video background
-    @FXML
-    private MediaView mediaview;
 
     @FXML
     private Button DoneButton;
@@ -39,23 +31,6 @@ public class NewGameSceneController {
 
     String name;
 
-    public void initialize() {
-        try {
-            String videoPath = "./Images/withouttext.mp4";
-
-            Media media = new Media(new File(videoPath).toURI().toString());
-
-            MediaPlayer mediaPlayer = new MediaPlayer(media);
-
-            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-            
-            mediaview.setMediaPlayer(mediaPlayer);
-            mediaPlayer.play();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
 
 //=================================================

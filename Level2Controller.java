@@ -299,7 +299,6 @@ private void generateBombImages(int numberOfImages) {
                 timer.setText(time.getLevelTime());
                 if(time.getLevelTime().equals("0:0")){
                     System.out.println("Level End!"); 
-                    
                     GameEnd(16);
 
                     // if user passed the level
