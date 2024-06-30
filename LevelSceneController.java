@@ -1,5 +1,9 @@
-import java.io.File;
+
 import java.io.IOException;
+import java.util.Random;
+import javafx.animation.Interpolator;
+import javafx.animation.RotateTransition;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,10 +12,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class LevelSceneController {
     
@@ -19,9 +24,19 @@ public class LevelSceneController {
     private Scene scene;
     private Parent root;
 
-     // video background
+    Random random = new Random();
+
+    Image[] fruitimages = {
+        new Image(getClass().getResourceAsStream("images/fruits/apple.png")),
+        new Image(getClass().getResourceAsStream("images/fruits/banana.png")),
+        new Image(getClass().getResourceAsStream("images/fruits/kiwi.png")),
+        new Image(getClass().getResourceAsStream("images/fruits/orange.png")),
+        new Image(getClass().getResourceAsStream("images/fruits/greenGrapes.png")),
+    };
+
+
     @FXML
-    private MediaView mediaview;
+    private AnchorPane homeback;
 
     @FXML
     private Label NameLabel;
@@ -39,27 +54,9 @@ public class LevelSceneController {
     double personProgrss = PersonManagment.PersonProgress(PersonManagment.GetPlayingPerson(),5);
 
     public void initialize() {
-        
-        //=================================================================================
-        //progress bar
-        LevelsProgressbar.setStyle("-fx-accent: #00FF00;");
-        LevelsProgressbar.setProgress(personProgrss);
-        Percentage.setText(Integer.toString((int)Math.round(personProgrss*100)) +" %");
-        //=================================================================================
-        NameLabel.setText(PersonManagment.GetPlayingPerson().GetPersonName()); // b set el label bta3y b esm el playng player
-        //=================================================================================
-        score.setText(String.valueOf(PersonManagment.GetPlayingPerson().GetPersonScore()));
+
         try {
-            String videoPath = "./Images/withouttext.mp4";
-
-            Media media = new Media(new File(videoPath).toURI().toString());
-
-            MediaPlayer mediaPlayer = new MediaPlayer(media);
-
-            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-            
-            mediaview.setMediaPlayer(mediaPlayer);
-            mediaPlayer.play();
+            generateFruitImages(9);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -137,5 +134,68 @@ public class LevelSceneController {
         scene= new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+     // generate method to generate random images of fruits 
+    private void generateFruitImages(int numberOfImages) {
+        for (int i = 0; i < numberOfImages; i++) {
+//=======================
+            ImageView imageView = new ImageView(); //create new imagevie object anf set it randomlly
+            int index = random.nextInt(fruitimages.length);
+            imageView.setImage(fruitimages[index]);
+//=======================
+            // Set smaller size for each image
+            imageView.setFitWidth(80); // Set width to 50 pixels
+            imageView.setFitHeight(80); // Set height to 50 pixels
+//========================
+            // Set random position for each image
+            imageView.setX(random.nextInt(362) + 132); // Adjust for image width
+            imageView.setY(447); // Adjust for image height
+            //============================
+            //add the image to the anchor pane and the list of images
+            homeback.getChildren().add(1, imageView);
+
+//=========================== 
+            // Apply transitions
+            applyTransitions(imageView, i * 1000); // Adding a delay based on the index
+        }
+    }
+
+    //==========================================================================
+    private void applyTransitions(ImageView imageView, int delay) {
+        RotateTransition rotate = new RotateTransition();
+        TranslateTransition transition = new TranslateTransition();
+        
+        // Adjusting transition settings based on AnchorPane dimensions
+        int maxWidth = (int) homeback.getPrefWidth();
+        int maxHeight = (int) homeback.getPrefHeight();
+
+        rotate.setNode(imageView);
+        transition.setNode(imageView);
+        transition.setDuration(Duration.millis(3000));
+        transition.setCycleCount(TranslateTransition.INDEFINITE);
+        
+        // Check the x position and set the direction of movement
+        if (imageView.getX() > 323) {
+            // Move to the left side
+            transition.setByX(-random.nextInt(maxWidth / 2) - maxWidth / 3);
+        } else {
+            // Move to the right side
+            transition.setByX(random.nextInt(maxWidth / 2) + maxWidth / 3);
+        }
+        
+        transition.setByY(-random.nextInt(maxHeight / 2) - maxHeight);
+        transition.setAutoReverse(true);
+        transition.setDelay(Duration.millis(delay));
+
+        rotate.setDuration(Duration.millis(1000));
+        rotate.setCycleCount(TranslateTransition.INDEFINITE);
+        rotate.setInterpolator(Interpolator.LINEAR);
+        rotate.setByAngle(360);
+        rotate.setDelay(Duration.millis(delay));
+        
+        rotate.play();
+        transition.play();
+
     }
 }

@@ -1,15 +1,10 @@
-import java.io.File;
-import java.io.IOException;
 
+import java.io.IOException;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 
 public class GameSceneControlller {
@@ -18,28 +13,6 @@ public class GameSceneControlller {
     private Scene scene;
     private Parent root;
 
-     // video background
-    @FXML
-    private MediaView ChooseGameMedia;
-
-    public void initialize() {
-
-        try {
-            String videoPath = "./Images/withouttext.mp4";
-
-            Media media = new Media(new File(videoPath).toURI().toString());
-
-            MediaPlayer mediaPlayer = new MediaPlayer(media);
-
-            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-            
-            ChooseGameMedia.setMediaPlayer(mediaPlayer);
-            mediaPlayer.play();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
     //========================================================
 
     //Back to home Scene Button 

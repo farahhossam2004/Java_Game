@@ -117,7 +117,7 @@ public class Level2Controller implements Initializable {
         timeline.play();
         
         Level2Score.setText(String.valueOf(levelScore));
-        generateFruitImages(10); // to generate 10 image 
+        generateFruitImages(12); // to generate 10 image 
         generateBombImages(4); // deh elzodtha
     }
 //=======================================================================================
@@ -299,7 +299,7 @@ private void generateBombImages(int numberOfImages) {
                 timer.setText(time.getLevelTime());
                 if(time.getLevelTime().equals("0:0")){
                     System.out.println("Level End!"); 
-                    GameEnd(14);
+                    GameEnd(16);
 
                     // if user passed the level
                     if(UserScore >= levelScore)
