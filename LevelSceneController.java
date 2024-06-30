@@ -7,11 +7,14 @@ import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.ImageCursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.effect.SepiaTone;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -34,6 +37,20 @@ public class LevelSceneController {
         new Image(getClass().getResourceAsStream("images/fruits/greenGrapes.png")),
     };
 
+    @FXML
+    private Button Level1;
+
+    @FXML
+    private Button Level2;
+
+    @FXML
+    private Button Level3;
+
+    @FXML
+    private Button Level4;
+
+    @FXML
+    private Button Level5;
 
     @FXML
     private AnchorPane homeback;
@@ -54,6 +71,48 @@ public class LevelSceneController {
     double personProgrss = PersonManagment.PersonProgress(PersonManagment.GetPlayingPerson(),5);
 
     public void initialize() {
+        
+// Assuming you have imported the necessary classes and initialized the buttons (Level1, Level2, etc.)
+
+for (int i = 1; i < 6; i++) {
+    if (PersonManagment.SearchForLevel(i, PersonManagment.GetPlayingPerson()) == 1) {
+        SepiaTone sepiaTone = new SepiaTone();
+        switch (i) {
+            case 1:
+                //Level1.setDisable(true); // discussion with farah
+                Level1.setEffect(sepiaTone);
+                break;
+            case 2:
+                //Level2.setDisable(true);
+                Level2.setEffect(sepiaTone);
+                break;
+            case 3:
+                //Level3.setDisable(true);
+                Level3.setEffect(sepiaTone);
+                break;
+            case 4:
+                //Level4.setDisable(true);
+                Level4.setEffect(sepiaTone);
+                break;
+            case 5:
+                //Level5.setDisable(true);
+                Level5.setEffect(sepiaTone);
+                break;
+        }
+    }
+}
+
+        
+
+        //=================================================================================
+        //progress bar
+        LevelsProgressbar.setStyle("-fx-accent: #00FF00;");
+        LevelsProgressbar.setProgress(personProgrss);
+        Percentage.setText(Integer.toString((int)Math.round(personProgrss*100)) +" %");
+        //=================================================================================
+        NameLabel.setText(PersonManagment.GetPlayingPerson().GetPersonName()); // b set el label bta3y b esm el playng player
+        //=================================================================================
+        score.setText(String.valueOf(PersonManagment.GetPlayingPerson().GetPersonScore()));
 
         try {
             generateFruitImages(9);
@@ -82,7 +141,10 @@ public class LevelSceneController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Level1.fxml"));
         root = loader.load();
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-
+        // Set the custom cursor
+        Image cursorImage = new Image(getClass().getResourceAsStream("Images/Cursor.png"));
+        ImageCursor customCursor = new ImageCursor(cursorImage);
+        stage.getScene().setCursor(customCursor);
         Level1Controller.setStage(stage);
         
         scene= new Scene(root);
@@ -150,7 +212,7 @@ public class LevelSceneController {
 //========================
             // Set random position for each image
             imageView.setX(random.nextInt(362) + 132); // Adjust for image width
-            imageView.setY(447); // Adjust for image height
+            imageView.setY(505); // Adjust for image height
             //============================
             //add the image to the anchor pane and the list of images
             homeback.getChildren().add(1, imageView);

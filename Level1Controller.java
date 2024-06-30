@@ -31,7 +31,7 @@ import javafx.util.Duration;
 
 public class Level1Controller implements Initializable {
 
-    Time time = new Time(0,18);
+    Time time = new Time(0,13);
     
     
 
@@ -57,7 +57,10 @@ public class Level1Controller implements Initializable {
     // List to save the generated fruit images
     private List<ImageView> generatedFruitImages = new ArrayList<>();
 
-    //==================================================================================
+    // List of fruit only without bomb 
+    private List<ImageView> FruitImages = new ArrayList<>();
+
+     //==================================================================================
     // back button 
 
     private static Stage stage;
@@ -85,7 +88,6 @@ public class Level1Controller implements Initializable {
     Image[] fruitimages = {
         new Image(getClass().getResourceAsStream("images/fruits/apple.png")),
         new Image(getClass().getResourceAsStream("images/fruits/banana.png")),
-        new Image(getClass().getResourceAsStream("images/fruits/bomb.png")),
         new Image(getClass().getResourceAsStream("images/fruits/kiwi.png")),
     };
 
@@ -93,20 +95,32 @@ public class Level1Controller implements Initializable {
     Image[] SlicedFruitimages = {
         new Image(getClass().getResourceAsStream("images/sliced_fruit/apple.png")),
         new Image(getClass().getResourceAsStream("images/sliced_fruit/banana.png")),
-        new Image(getClass().getResourceAsStream("images/sliced_fruit/bomb.png")),
         new Image(getClass().getResourceAsStream("images/sliced_fruit/kiwi.png")),
+    };
+
+    // Array of image of bomb 
+    Image[] Bombimages = {
+        new Image(getClass().getResourceAsStream("images/fruits/bomb.png")),
+    };
+
+    // Array of sliced Bomb Image 
+    Image[] SlicedBombimages = {
+        new Image(getClass().getResourceAsStream("images/sliced_fruit/bomb.png")),
     };
 
     //=================================================================================
     // initialize method
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+
         timer.setText(time.getLevelTime());
         timeline.setCycleCount((time.getMin() * 60) + time.getSec());
         timeline.play();
         
         Level1Score.setText(String.valueOf(levelScore));
-        generateFruitImages(9); // to generate 8 fruit image 
+        generateFruitImages(7); // to generate 8 fruit image 
+        generateBombImages(2);
     }
 //=======================================================================================
 
@@ -144,6 +158,15 @@ public class Level1Controller implements Initializable {
                 fade.setToValue(0);
                 fade.setOnFinished(fadeFinishedEvent -> {
                     imageContainer.getChildren().remove(imageView);
+                    FruitImages.remove(imageView);
+                    
+                    if(FruitImages.isEmpty()){
+                        if(UserScore>levelScore)
+                            System.out.println("\nSucces Pass"); //================================> alrtat hnaaa
+                        else
+                            System.out.println("\n Failed"); // ===================================> alertat hnnaaaa
+                    }
+
                 });
                 fade.play(); //fade the clicked image
 //==========================
@@ -159,10 +182,6 @@ public class Level1Controller implements Initializable {
                         score.setText(String.valueOf(UserScore));
                         break;
                     case 2:
-                        UserScore = UserScore+Fruit.GetBombScore();
-                        score.setText(String.valueOf(UserScore));
-                        break;
-                    case 3:
                         UserScore = UserScore+Fruit.GetKiwiScore();
                         score.setText(String.valueOf(UserScore));
                         break;
@@ -175,11 +194,65 @@ public class Level1Controller implements Initializable {
             //add the image to the anchor pane and the list of images
             imageContainer.getChildren().add(imageView);
             generatedFruitImages.add(imageView);
+            FruitImages.add(imageView);
 //=========================== 
             // Apply transitions
             applyTransitions(imageView, i * 1000); // Adding a delay based on the index
         }
     }
+//=========================================================================
+// function to generate number of bombs 
+// generate method to generate random images of fruits 
+private void generateBombImages(int numberOfImages) {
+    for (int i = 0; i < numberOfImages; i++) {
+//=======================
+        ImageView imageView = new ImageView(); //create new imagevie object anf set it randomlly
+        imageView.setImage(Bombimages[0]);
+//=======================
+        // Set smaller size for each image
+        imageView.setFitWidth(80); // Set width to 50 pixels
+        imageView.setFitHeight(80); // Set height to 50 pixels
+//========================
+        // Set random position for each image
+        imageView.setX(random.nextInt(362) + 132); // Adjust for image width
+        imageView.setY(447); // Adjust for image height
+//=========================
+// Add a custom property to track if the image has been clicked
+        BooleanProperty isClicked = new SimpleBooleanProperty(false);
+
+        // to change the image of fruit into sliced one and fade in case of mouse clicking 
+        imageView.setOnMouseExited(event -> {
+            if (!isClicked.get()) {
+            isClicked.set(true);
+            imageView.setImage(SlicedBombimages[0]);
+            FadeTransition fade = new FadeTransition();
+            fade.setNode(imageView);
+            fade.setDuration(Duration.millis(500));
+            fade.setInterpolator(Interpolator.LINEAR);
+            fade.setFromValue(1);
+            fade.setToValue(0);
+            fade.setOnFinished(fadeFinishedEvent -> {
+                imageContainer.getChildren().remove(imageView);
+            });
+            fade.play(); //fade the clicked image
+//==========================
+            // to calculate your score and from sliced image index will calculate it apple 0 banana 1  kiwi 2 orange 3
+            // index based on the array of images to get the score u need from the fruit class
+            UserScore =UserScore+Fruit.GetBombScore();
+            if(UserScore<0)
+                UserScore=0;
+            score.setText(String.valueOf(UserScore));
+        }
+        });
+//============================
+        //add the image to the anchor pane and the list of images
+        imageContainer.getChildren().add(imageView);
+        generatedFruitImages.add(imageView);
+//=========================== 
+        // Apply transitions
+        applyTransitions(imageView, i * 1000); // Adding a delay based on the index
+    }
+}
 //==========================================================================
     private void applyTransitions(ImageView imageView, int delay) {
         RotateTransition rotate = new RotateTransition();
@@ -240,7 +313,7 @@ public class Level1Controller implements Initializable {
                     if(UserScore >= levelScore)
                     {
                         Level level = new Level(UserScore, 1);
-
+                        
                         //========================
                         PersonManagment.addormodifyLevel(PersonManagment.GetPlayingPerson(), level);
                         PersonManagment.CalculateScore(PersonManagment.GetPlayingPerson());

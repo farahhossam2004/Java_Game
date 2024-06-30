@@ -47,15 +47,23 @@ public class PersonManagment {
         person.SetPersonScore(score);;
     } 
 //===============================================================
+// for progress bar 
 public static double PersonProgress(Person person , int numberoflevels){
-    int progress = 0;
-    for(int i = 0 ; i < person.GetAllPersonLevels().size();i++){ //
-        if(person.GetAllPersonLevels().get(i).GetLevelID()>progress)
-            progress = person.GetAllPersonLevels().get(i).GetLevelID();
-    }
-    return (double)progress / numberoflevels ;
-}
+    
+    return (double)person.GetAllPersonLevels().size() / numberoflevels ;
 
+}
+//========================================================
+//for choosing any level 
+public static int SearchForLevel(int levelid , Person person){
+    for(int i = 0 ; i < person.GetAllPersonLevels().size();i++){
+        if(person.GetAllPersonLevels().get(i).GetLevelID()==levelid){
+            return 1; // find the level
+    }
+}
+    return 0; // didnt play and complete the level
+}
+//======================================================
     public static ArrayList<Person> GetAllPersons() {
         return PersonArray;
     }

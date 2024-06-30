@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.Bloom?>
 <?import javafx.scene.effect.SepiaTone?>
 <?import javafx.scene.image.Image?>
@@ -126,6 +127,21 @@
             <Insets />
          </opaqueInsets>
       </Button>
+      <Label fx:id="TitleField" layoutX="309.0" layoutY="47.0" prefHeight="136.0" prefWidth="186.0" text="riut" textFill="#c8f746">
+         <font>
+            <Font name="Cambria" size="96.0" />
+         </font>
+      </Label>
+      <Label fx:id="FTitle" layoutX="242.0" layoutY="39.0" prefHeight="80.0" prefWidth="50.0" text="F" textFill="#c8f746">
+         <font>
+            <Font name="Jokerman" size="96.0" />
+         </font>
+      </Label>
+      <Label fx:id="Ztitle" layoutX="477.0" layoutY="39.0" prefHeight="80.0" prefWidth="50.0" text="Z" textFill="#c8f746">
+         <font>
+            <Font name="Jokerman" size="96.0" />
+         </font>
+      </Label>
       
    </children>
    <cursor>

@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.util.Random;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
+import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,6 +11,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -18,6 +21,14 @@ import javafx.util.Duration;
 
 public class SceneController {
 
+    @FXML
+    private Label TitleField;
+    @FXML
+    private Label Ztitle;
+    @FXML
+    private Label FTitle;
+    
+   
     @FXML
     private AnchorPane homeback;
     
@@ -34,6 +45,8 @@ public class SceneController {
         new Image(getClass().getResourceAsStream("images/fruits/banana.png")),
         new Image(getClass().getResourceAsStream("images/fruits/bomb.png")),
         new Image(getClass().getResourceAsStream("images/fruits/kiwi.png")),
+        new Image(getClass().getResourceAsStream("images/fruits/orange.png")),
+        new Image(getClass().getResourceAsStream("images/fruits/redGrapes.png")),
     };
 
 
@@ -108,9 +121,35 @@ public class SceneController {
 //============================================================
 
     public void initialize() {
+        
+        
 
         try {
-            generateFruitImages(9); // to generate 8 fruit image 
+
+            generateFruitImages(10); // to generate 8 fruit image 
+            ScaleTransition scaleTransition = new ScaleTransition(Duration.millis(2000), TitleField);
+            scaleTransition.setFromX(1.0);
+            scaleTransition.setFromY(1.0);
+            scaleTransition.setToX(1.4);
+            scaleTransition.setToY(1.4);
+            scaleTransition.setCycleCount(2);
+            scaleTransition.setAutoReverse(true);
+
+            //For F Letter
+            // Create the TranslateTransition
+            TranslateTransition ftranslateTransition = new TranslateTransition(Duration.millis(1600), FTitle);
+            ftranslateTransition.setFromX(-100); // Starting from 100 pixels to the left
+            ftranslateTransition.setToX(0); // Moving to the original position
+            // Start the animation when the Label is clicked
+
+            //For Z Letter
+            TranslateTransition ZTranslateTransition = new TranslateTransition(Duration.millis(1700),Ztitle);
+            ZTranslateTransition.setFromY(-100);
+            ZTranslateTransition.setToY(0);
+
+            scaleTransition.playFromStart();
+            ftranslateTransition.playFromStart();
+            ZTranslateTransition.playFromStart();
 
         } catch (Exception e) {
             e.printStackTrace();

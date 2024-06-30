@@ -59,6 +59,9 @@ public class Level3Controller implements Initializable {
     // List to save the generated fruit images
     private List<ImageView> generatedFruitImages = new ArrayList<>();
 
+    // List of fruit only without bomb 
+    private List<ImageView> FruitImages = new ArrayList<>();
+
     //==================================================================================
     // back button 
 
@@ -157,6 +160,15 @@ public class Level3Controller implements Initializable {
                 fade.setToValue(0);
                 fade.setOnFinished(fadeFinishedEvent -> {
                     imageContainer.getChildren().remove(imageView);
+
+                    FruitImages.remove(imageView); // to remove the fruit from the array of fruit 
+                    
+                    if(FruitImages.isEmpty()){ // if the array empty and no fruit image left
+                        if(UserScore>levelScore)
+                            System.out.println("\nSucces Pass"); //================================> alrtat hnaaa
+                        else
+                            System.out.println("\n Failed"); // ===================================> alertat hnnaaaa
+                    }
                 });
                 fade.play(); //fade the clicked image
 //==========================
@@ -188,6 +200,7 @@ public class Level3Controller implements Initializable {
             //add the image to the anchor pane and the list of images
             imageContainer.getChildren().add(imageView);
             generatedFruitImages.add(imageView);
+            FruitImages.add(imageView); //==> to add the fruit to an array 
 //=========================== 
             // Apply transitions
             applyTransitions(imageView, i * 1000); // Adding a delay based on the index
@@ -234,6 +247,8 @@ private void generateBombImages(int numberOfImages) {
             // to calculate your score and from sliced image index will calculate it apple 0 banana 1  kiwi 2 orange 3
             // index based on the array of images to get the score u need from the fruit class
             UserScore =UserScore+Fruit.GetBombScore();
+            if(UserScore<0) // to check if the result is negative 
+                UserScore=0; // retart the score
             score.setText(String.valueOf(UserScore));
         }
         });

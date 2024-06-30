@@ -96,7 +96,7 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <Button id="WM" layoutX="21.0" layoutY="98.0" mnemonicParsing="false" onAction="#SwitchToLevel1Scene" prefHeight="35.0" prefWidth="174.0" stylesheets="@Styling.css" text="Level 1" textAlignment="CENTER">
+      <Button id="WM" fx:id="Level1" layoutX="21.0" layoutY="98.0" mnemonicParsing="false" onAction="#SwitchToLevel1Scene" prefHeight="35.0" prefWidth="174.0" stylesheets="@Styling.css" text="Level 1" textAlignment="CENTER">
          <font>
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font>
@@ -151,7 +151,7 @@
             <SepiaTone />
          </effect>
       </Button>
-      <Button id="WM" layoutX="232.0" layoutY="98.0" mnemonicParsing="false" onAction="#SwitchToLevel2Scene" prefHeight="35.0" prefWidth="174.0" stylesheets="@Styling.css" text="Level 2" textAlignment="CENTER">
+      <Button id="WM" fx:id="Level2" layoutX="232.0" layoutY="98.0" mnemonicParsing="false" onAction="#SwitchToLevel2Scene" prefHeight="35.0" prefWidth="174.0" stylesheets="@Styling.css" text="Level 2" textAlignment="CENTER">
          <font>
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font>
@@ -178,7 +178,7 @@
             <Bloom threshold="0.75" />
          </effect>
       </Button>
-      <Button id="WM" layoutX="442.0" layoutY="98.0" mnemonicParsing="false" onAction="#SwitchToLevel3Scene" prefHeight="35.0" prefWidth="174.0" stylesheets="@Styling.css" text="Level 3" textAlignment="CENTER">
+      <Button id="WM" fx:id="Level3" layoutX="442.0" layoutY="98.0" mnemonicParsing="false" onAction="#SwitchToLevel3Scene" prefHeight="35.0" prefWidth="174.0" stylesheets="@Styling.css" text="Level 3" textAlignment="CENTER">
          <font>
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font>
@@ -205,7 +205,7 @@
             <Bloom threshold="0.75" />
          </effect>
       </Button>
-      <Button id="WM" layoutX="21.0" layoutY="191.0" mnemonicParsing="false" onAction="#SwitchToLevel4Scene" prefHeight="35.0" prefWidth="174.0" stylesheets="@Styling.css" text="Level 4" textAlignment="CENTER">
+      <Button id="WM" fx:id="Level4" layoutX="21.0" layoutY="191.0" mnemonicParsing="false" onAction="#SwitchToLevel4Scene" prefHeight="35.0" prefWidth="174.0" stylesheets="@Styling.css" text="Level 4" textAlignment="CENTER">
          <font>
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font>
@@ -232,7 +232,7 @@
             <Bloom threshold="0.75" />
          </effect>
       </Button>
-      <Button id="WM" layoutX="232.0" layoutY="191.0" mnemonicParsing="false" onAction="#SwitchToLevel5Scene" prefHeight="35.0" prefWidth="174.0" stylesheets="@Styling.css" text="Level 5" textAlignment="CENTER">
+      <Button id="WM" fx:id="Level5" layoutX="232.0" layoutY="191.0" mnemonicParsing="false" onAction="#SwitchToLevel5Scene" prefHeight="35.0" prefWidth="174.0" stylesheets="@Styling.css" text="Level 5" textAlignment="CENTER">
          <font>
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font>
