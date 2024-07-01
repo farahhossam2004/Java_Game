@@ -46,6 +46,8 @@ public class PassAlertController {
 
             if(stage != null)
             stage.close(); 
+
+            sound.stop();
         }
     }
 
@@ -57,6 +59,8 @@ public class PassAlertController {
 
             if(stage != null)
             stage.close(); 
+
+            sound.stop();
         }
     }
 }
