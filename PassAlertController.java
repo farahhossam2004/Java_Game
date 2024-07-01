@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 
 public class PassAlertController {
@@ -12,8 +13,12 @@ public class PassAlertController {
     private Consumer<ActionEvent> sceneSwitchFunction;
     private Consumer<ActionEvent> sceneBackFunction;
 
+    // Load the sound effect
+    AudioClip sound = new AudioClip(getClass().getResource("Sound/LevelPassed.mp3").toString());
+
     public void setStage(Stage stage) {
         this.stage = stage;
+        sound.play();
     }
 
     public void setButtonAction(Consumer<ActionEvent> action) {

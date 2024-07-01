@@ -5,16 +5,22 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 
 public class FailAlertController {
+    
     
     private Stage stage;
     private Consumer<ActionEvent> TryAgainFunction;
     private Consumer<ActionEvent> sceneBackFunction;
 
+    // Load the sound effect
+    AudioClip sound = new AudioClip(getClass().getResource("Sound/Failed.mp3").toString());
+
     public void setStage(Stage stage) {
         this.stage = stage;
+        sound.play();
     }
 
     public void setTryAgainAction(Consumer<ActionEvent> action) {

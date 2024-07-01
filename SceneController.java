@@ -16,6 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -28,7 +29,7 @@ public class SceneController {
     @FXML
     private Label FTitle;
     
-   
+
     @FXML
     private AnchorPane homeback;
     
@@ -36,6 +37,9 @@ public class SceneController {
     private Scene scene;
     private Parent root;
 
+
+    // Load the sound effect
+    AudioClip Buttonsound = new AudioClip(getClass().getResource("Sound/PopButton.mp3").toString());
 
     Random random = new Random();
 
@@ -55,6 +59,7 @@ public class SceneController {
     // Load Game Scene
     
     public void SwitchTGameScene(ActionEvent e)throws IOException{
+        Buttonsound.play();
         root = FXMLLoader.load(getClass().getResource("GameScene.fxml"));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene= new Scene(root);
@@ -66,6 +71,7 @@ public class SceneController {
 
     // Go To Level Scene
     public void SwitchtoLevelScene(ActionEvent e)throws IOException{
+        Buttonsound.play();
         root = FXMLLoader.load(getClass().getResource("LevelScene.fxml"));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene= new Scene(root);
@@ -78,6 +84,7 @@ public class SceneController {
     //Switch to Score Scene ====> Score button
 
     public void SwitchtoScoreScene(ActionEvent e)throws IOException{
+        Buttonsound.play();
         root = FXMLLoader.load(getClass().getResource(""));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene= new Scene(root);
@@ -90,6 +97,7 @@ public class SceneController {
     //Switch to Settings Scene ====> Setting button 
 
     public void SwitchtoSettingsScene(ActionEvent e)throws IOException{
+        Buttonsound.play();
         root = FXMLLoader.load(getClass().getResource("Settings.fxml"));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene= new Scene(root);
@@ -101,6 +109,7 @@ public class SceneController {
     //Switch to Credit Scene ====> Credit Button
 
     public void SwitchtoCreditScene(ActionEvent e)throws IOException{
+        Buttonsound.play();
         root = FXMLLoader.load(getClass().getResource(""));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene= new Scene(root);
@@ -111,6 +120,7 @@ public class SceneController {
 
     //Back to home Scene Button 
     public void SwitchToHomeScene(ActionEvent e)throws IOException{
+        Buttonsound.play();
         root = FXMLLoader.load(getClass().getResource("main.fxml"));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene= new Scene(root);
