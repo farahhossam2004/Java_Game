@@ -32,7 +32,7 @@
             <Bloom threshold="0.61" />
          </effect>
       </Button>
-      <Button id="WM" layoutX="177.0" layoutY="287.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="117.0" stylesheets="@Styling.css" text="Score">
+      <Button id="WM" layoutX="177.0" layoutY="287.0" mnemonicParsing="false" onAction="#SwitchtoHowToPlayScene" prefHeight="50.0" prefWidth="137.0" stylesheets="@Styling.css" text="How To Play">
          <textFill>
             <LinearGradient cycleMethod="REPEAT" endX="1.0" endY="1.0" startY="1.0">
                <stops>
@@ -53,7 +53,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
-            <Font name="Berlin Sans FB Demi Bold" size="24.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="20.0" />
          </font>
          <effect>
             <Bloom threshold="0.61" />
@@ -86,7 +86,7 @@
             <Bloom threshold="0.61" />
          </effect>
       </Button>
-      <Button id="WM" layoutX="502.0" layoutY="308.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="117.0" stylesheets="@Styling.css" text="Credit">
+      <Button id="WM" layoutX="502.0" layoutY="308.0" mnemonicParsing="false" onAction="#SwitchtoCreditScene" prefHeight="43.0" prefWidth="117.0" stylesheets="@Styling.css" text="Credit">
          <textFill>
             <LinearGradient cycleMethod="REPEAT" endX="1.0" endY="1.0" startY="1.0">
                <stops>

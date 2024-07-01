@@ -80,10 +80,10 @@ public class SceneController {
 
 //=================================================
 
-    //Switch to Score Scene ====> Score button
+    //Switch to HowToPlay Scene ====> HowToPlay  button
 
-    public void SwitchtoScoreScene(ActionEvent e)throws IOException{
-        root = FXMLLoader.load(getClass().getResource(""));
+    public void SwitchtoHowToPlayScene(ActionEvent e)throws IOException{
+        root = FXMLLoader.load(getClass().getResource("./HowToPlay.fxml"));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene= new Scene(root);
         stage.setScene(scene);
@@ -106,7 +106,7 @@ public class SceneController {
     //Switch to Credit Scene ====> Credit Button
 
     public void SwitchtoCreditScene(ActionEvent e)throws IOException{
-        root = FXMLLoader.load(getClass().getResource(""));
+        root = FXMLLoader.load(getClass().getResource("./Credits.fxml"));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene= new Scene(root);
         stage.setScene(scene);
