@@ -45,6 +45,8 @@ public class FailAlertController {
             
             if(stage != null)
             stage.close(); 
+
+            sound.stop();
         }
     }
 
@@ -53,9 +55,11 @@ public class FailAlertController {
 
         if (sceneBackFunction != null) {
             sceneBackFunction.accept(e);
-
+            
             if(stage != null)
             stage.close(); 
+
+            sound.stop();
         }
     }
 }
