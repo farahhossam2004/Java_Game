@@ -60,10 +60,6 @@ public class Level3Controller implements Initializable {
 AudioClip sound = new AudioClip(getClass().getResource("Sound/SwordSound.mp3").toString());
 AudioClip BombSound = new AudioClip(getClass().getResource("Sound/Bomb.mp3").toString());
 //=================================================================
-    
-    // List to save the generated fruit images
-    private List<ImageView> generatedFruitImages = new ArrayList<>();
-
     // List of fruit only without bomb 
     private List<ImageView> FruitImages = new ArrayList<>();
 
@@ -206,7 +202,6 @@ AudioClip BombSound = new AudioClip(getClass().getResource("Sound/Bomb.mp3").toS
 //============================
             //add the image to the anchor pane and the list of images
             imageContainer.getChildren().add(imageView);
-            generatedFruitImages.add(imageView);
             FruitImages.add(imageView); //==> to add the fruit to an array 
 //=========================== 
             // Apply transitions
@@ -263,7 +258,6 @@ private void generateBombImages(int numberOfImages) {
 //============================
         //add the image to the anchor pane and the list of images
         imageContainer.getChildren().add(imageView);
-        generatedFruitImages.add(imageView);
 //=========================== 
         // Apply transitions
         applyTransitions(imageView, i * 1000); // Adding a delay based on the index
@@ -308,14 +302,6 @@ private void generateBombImages(int numberOfImages) {
 
     }
 
-//==================================================================================
-    //function to stop the game and the images
-    private void GameEnd(int numberfruitimages){
-        for (ImageView imageView : generatedFruitImages) {
-            imageContainer.getChildren().remove(imageView);
-        }
-        generatedFruitImages.clear(); // Clear the list after removing the images
-    }
 //=================================================================================
     Timeline timeline = new Timeline(
         new KeyFrame(Duration.seconds(1),
@@ -323,10 +309,6 @@ private void generateBombImages(int numberOfImages) {
                 time.oneSecondPassed();
                 timer.setText(time.getLevelTime());
                 if(time.getLevelTime().equals("0:0")){
-                    
-                    
-                    GameEnd(26);//==================================================> btt3dllllllll
-
                     // if user passed the level
                     if(UserScore >= levelScore)
                     {

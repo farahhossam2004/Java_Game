@@ -20,6 +20,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -59,10 +60,7 @@ AudioClip sound = new AudioClip(getClass().getResource("Sound/SwordSound.mp3").t
 AudioClip BombSound = new AudioClip(getClass().getResource("Sound/Bomb.mp3").toString());
 //=================================================================
     
-    // List to save the generated fruit images
-    private List<ImageView> generatedFruitImages = new ArrayList<>();
-
-     // List of fruit only without bomb 
+    // List of fruit only without bomb 
     private List<ImageView> FruitImages = new ArrayList<>();
 
     //==================================================================================
@@ -126,7 +124,6 @@ AudioClip BombSound = new AudioClip(getClass().getResource("Sound/Bomb.mp3").toS
         timer.setText(time.getLevelTime());
         timeline.setCycleCount((time.getMin() * 60) + time.getSec());
         timeline.play();
-        
         Level5Score.setText(String.valueOf(levelScore));
         generateFruitImages(28); // =====================================================> btt3dl  
         generateBombImages(8); // deh elzodtha
@@ -216,13 +213,13 @@ AudioClip BombSound = new AudioClip(getClass().getResource("Sound/Bomb.mp3").toS
 //============================
             //add the image to the anchor pane and the list of images
             imageContainer.getChildren().add(imageView);
-            generatedFruitImages.add(imageView);
             FruitImages.add(imageView); //==> to add the fruit to an array 
 //=========================== 
             // Apply transitions
             applyTransitions(imageView, i * 1400); // Adding a delay based on the index
         }
     }
+
 
 //=====================================================================================================
 
@@ -273,7 +270,6 @@ private void generateBombImages(int numberOfImages) {
 //============================
         //add the image to the anchor pane and the list of images
         imageContainer.getChildren().add(imageView);
-        generatedFruitImages.add(imageView);
 //=========================== 
         // Apply transitions
         applyTransitions(imageView, i * 1000); // Adding a delay based on the index
@@ -321,14 +317,6 @@ private void generateBombImages(int numberOfImages) {
 
     }
 
-//==================================================================================
-    //function to stop the game and the images
-    private void GameEnd(int numberfruitimages){
-        for (ImageView imageView : generatedFruitImages) {
-            imageContainer.getChildren().remove(imageView);
-        }
-        generatedFruitImages.clear(); // Clear the list after removing the images
-    }
 //=================================================================================
     Timeline timeline = new Timeline(
         new KeyFrame(Duration.seconds(1),
@@ -336,10 +324,6 @@ private void generateBombImages(int numberOfImages) {
                 time.oneSecondPassed();
                 timer.setText(time.getLevelTime());
                 if(time.getLevelTime().equals("0:0")){
-                    
-                    
-                    GameEnd(34);//==================================================> btt3dllllllll
-
                     // if user passed the level
                     if(UserScore >= levelScore)
                     {
