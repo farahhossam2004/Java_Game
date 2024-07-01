@@ -1,31 +1,70 @@
-
-
-import javafx.animation.ScaleTransition;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
-import javafx.util.Duration;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SettingsController implements Initializable {
-    
+
+
+    private Stage stage ;
+    private Scene scene;
+    private Parent root;
+
+    public static boolean CheckBoxStatue = true;
+
     @FXML
-    private Label TitleField;
-    
+    private CheckBox MusicCheckBox;
+
+    @FXML
+    private Label MusicField;
+
+    @FXML
+    void ChangeMusic(ActionEvent event) {
+        if (MusicCheckBox.isSelected()) {
+            MusicField.setText("ON");
+            MusicControllerMedia.playMedia();
+            CheckBoxStatue = true; 
+        } else {
+            MusicField.setText("OFF");
+            MusicControllerMedia.pauseMedia();
+            CheckBoxStatue=false;
+        }
+    }
+
+    //Back to home Scene Button 
+    public void SwitchToHomeScene(ActionEvent e)throws IOException{
+        PersonManagment.SetplayingPerson(null);
+        root = FXMLLoader.load(getClass().getResource("main.fxml"));
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene= new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // Create the ScaleTransition
-        ScaleTransition scaleTransition = new ScaleTransition(Duration.millis(1000), TitleField);
-        scaleTransition.setFromX(1.0);
-        scaleTransition.setFromY(1.0);
-        scaleTransition.setToX(1.2);
-        scaleTransition.setToY(1.2);
-        scaleTransition.setCycleCount(2);
-        scaleTransition.setAutoReverse(true);
+        MusicCheckBox.setSelected(CheckBoxStatue); // Set the default state to selected
+        if(CheckBoxStatue){
+            MusicField.setText("ON");
+        }else{
+            MusicField.setText("OFF");
+        }
+    }
 
-        // Start the animation when the Label is clicked
-        TitleField.setOnMouseClicked(event -> scaleTransition.playFromStart());
+    // Method to get the state of the CheckBox
+    public static boolean GetCheckBoxStatue() {
+        return CheckBoxStatue;
     }
 }
+
+

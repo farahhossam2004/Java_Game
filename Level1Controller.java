@@ -76,8 +76,12 @@ AudioClip BombSound = new AudioClip(getClass().getResource("Sound/Bomb.mp3").toS
     
     @FXML
     void back(ActionEvent e) throws IOException {
-        MusicControllerMedia.playMedia();
-        timeline.stop();
+        
+        if(SettingsController.GetCheckBoxStatue()) //====> For Music
+            MusicControllerMedia.playMedia();
+        
+        
+            timeline.stop();
         root = FXMLLoader.load(getClass().getResource("LevelScene.fxml"));
         scene = new Scene(root);
         stage.setScene(scene);

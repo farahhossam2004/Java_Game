@@ -127,8 +127,8 @@ public class SceneController {
 
     public void initialize() {
         
-        MusicControllerMedia.playMedia();
-
+        if(SettingsController.GetCheckBoxStatue())
+            MusicControllerMedia.playMedia();
         try {
 
             generateFruitImages(10); // to generate 8 fruit image 
