@@ -65,6 +65,7 @@ public class SettingsController implements Initializable {
     public static boolean GetCheckBoxStatue() {
         return CheckBoxStatue;
     }
+    
 }
 
 

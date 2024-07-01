@@ -42,7 +42,7 @@ public class FailAlertController {
 
         if (TryAgainFunction != null) {
             TryAgainFunction.accept(event);
-
+            
             if(stage != null)
             stage.close(); 
         }
