@@ -38,6 +38,8 @@ public class Level1Controller implements Initializable {
 
     int levelScore = 30;
     int UserScore = 0 ; 
+//==========================================================
+
 
 //===========================================================
 // Fxml Components
@@ -74,6 +76,7 @@ AudioClip BombSound = new AudioClip(getClass().getResource("Sound/Bomb.mp3").toS
     
     @FXML
     void back(ActionEvent e) throws IOException {
+        MusicControllerMedia.playMedia();
         timeline.stop();
         root = FXMLLoader.load(getClass().getResource("LevelScene.fxml"));
         scene = new Scene(root);
@@ -113,7 +116,7 @@ AudioClip BombSound = new AudioClip(getClass().getResource("Sound/Bomb.mp3").toS
     // initialize method
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+        MusicControllerMedia.pauseMedia();
         timer.setText(time.getLevelTime());
         timeline.setCycleCount((time.getMin() * 60) + time.getSec());
         timeline.play();

@@ -26,6 +26,7 @@ public class LevelSceneController {
     private Scene scene;
     private Parent root;
 
+
     Random random = new Random();
 
     Image[] fruitimages = {
@@ -136,7 +137,6 @@ for (int i = 1; i < 6; i++) {
     // button to level 1 scene
 
     public void SwitchToLevel1Scene(ActionEvent e)throws IOException{
-        
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Level1.fxml"));
         root = loader.load();
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();

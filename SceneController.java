@@ -1,4 +1,4 @@
-import java.io.File;
+
 import java.io.IOException;
 import java.util.Random;
 import javafx.animation.Interpolator;
@@ -16,8 +16,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
+
+
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -38,10 +38,8 @@ public class SceneController {
     private Parent root;
 
     //===============================================
-    Media BackGroundMusic = new Media(new File("Sound/JacketBomb.mp3").toURI().toString()); 
-
-    MediaPlayer mediaPlayer = new MediaPlayer(BackGroundMusic);
-
+    
+    
     //==============================================
 
     Random random = new Random();
@@ -62,7 +60,6 @@ public class SceneController {
     // Load Game Scene
     
     public void SwitchTGameScene(ActionEvent e)throws IOException{
-        GameSceneControlller.initData(mediaPlayer); // Pass mediaPlayer to the next controller
         root = FXMLLoader.load(getClass().getResource("GameScene.fxml"));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene= new Scene(root);
@@ -130,9 +127,7 @@ public class SceneController {
 
     public void initialize() {
         
-        // Set the MediaPlayer to loop indefinitely
-        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-        mediaPlayer.play();
+        MusicControllerMedia.playMedia();
 
         try {
 
