@@ -72,7 +72,6 @@ public class LevelSceneController {
     public void initialize() {
         
 // Assuming you have imported the necessary classes and initialized the buttons (Level1, Level2, etc.)
-
 for (int i = 1; i < 6; i++) {
     if (PersonManagment.SearchForLevel(i, PersonManagment.GetPlayingPerson()) == 1) {
         SepiaTone sepiaTone = new SepiaTone();
@@ -137,6 +136,7 @@ for (int i = 1; i < 6; i++) {
     // button to level 1 scene
 
     public void SwitchToLevel1Scene(ActionEvent e)throws IOException{
+        
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Level1.fxml"));
         root = loader.load();
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();

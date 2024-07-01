@@ -113,6 +113,7 @@ AudioClip BombSound = new AudioClip(getClass().getResource("Sound/Bomb.mp3").toS
     // initialize method
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        
         timer.setText(time.getLevelTime());
         timeline.setCycleCount((time.getMin() * 60) + time.getSec());
         timeline.play();
