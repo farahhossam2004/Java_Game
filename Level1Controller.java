@@ -23,6 +23,7 @@ import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.AudioClip;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -52,6 +53,10 @@ public class Level1Controller implements Initializable {
     @FXML
     private Text Level1Score;
 
+//============================
+// Load the sound effect
+AudioClip sound = new AudioClip(getClass().getResource("Sound/SwordSound.mp3").toString());
+AudioClip BombSound = new AudioClip(getClass().getResource("Sound/Bomb.mp3").toString());
 //=================================================================
     
     // List to save the generated fruit images
@@ -148,6 +153,7 @@ public class Level1Controller implements Initializable {
             
             imageView.setOnMouseExited(event -> {
                 if(!isClicked.get()){
+                sound.play();
                 isClicked.set(true);
                 imageView.setImage(SlicedFruitimages[index]);
                 FadeTransition fade = new FadeTransition();
@@ -225,6 +231,7 @@ private void generateBombImages(int numberOfImages) {
         // to change the image of fruit into sliced one and fade in case of mouse clicking 
         imageView.setOnMouseExited(event -> {
             if (!isClicked.get()) {
+            BombSound.play();
             isClicked.set(true);
             imageView.setImage(SlicedBombimages[0]);
             FadeTransition fade = new FadeTransition();
