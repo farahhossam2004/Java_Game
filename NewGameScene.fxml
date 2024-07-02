@@ -22,7 +22,7 @@
             <Image url="@Images/background.png" />
          </image>
       </ImageView>
-      <TextField fx:id="TextNameArea" layoutX="182.0" layoutY="219.0" prefHeight="27.0" prefWidth="302.0">
+      <TextField id="text-field" fx:id="TextNameArea" layoutX="159.0" layoutY="216.0" prefHeight="47.0" prefWidth="355.0" stylesheets="@Styling.css">
          <font>
             <Font size="13.0" />
          </font>
