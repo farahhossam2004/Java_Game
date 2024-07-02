@@ -122,14 +122,13 @@
 }
 
 #text-field {
-    -fx-background-color: rgb(118, 75, 22);
+    -fx-background-color: transparent; /* Make background color transparent */
     -fx-text-fill: rgb(255, 255, 255);
-    -fx-font-size: 18px; /* Increased font size */
-    -fx-font-weight: bold; /* Make the font bold */
-    -fx-font-style: italic; /* Make the font italic */
     -fx-padding: 5px;
-    -fx-border-color: rgb(255, 255, 255);
-    -fx-border-radius: 5px;
-    -fx-background-radius: 5px;
+    -fx-border-color: transparent transparent rgb(255, 255, 255) transparent; /* Bottom border only */
+    -fx-border-width: 0 0 2px 0; /* Set border width for bottom only */
+    -fx-border-radius: 0; /* Remove border radius to ensure only bottom border is visible */
+    -fx-background-radius: 0; /* Remove background radius */
 }
+
 

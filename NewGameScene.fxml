@@ -22,12 +22,12 @@
             <Image url="@Images/background.png" />
          </image>
       </ImageView>
-      <TextField id="text-field" fx:id="TextNameArea" layoutX="159.0" layoutY="216.0" prefHeight="47.0" prefWidth="355.0" stylesheets="@Styling.css">
+      <TextField id="text-field" fx:id="TextNameArea" layoutX="159.0" layoutY="219.0" prefHeight="47.0" prefWidth="355.0" stylesheets="@Styling.css">
          <font>
-            <Font size="13.0" />
+            <Font name="Bookman Old Style" size="19.0" />
          </font>
       </TextField>
-      <Separator layoutX="159.0" layoutY="147.0" prefHeight="2.0" prefWidth="348.0" />
+      <Separator layoutX="163.0" layoutY="126.0" prefHeight="2.0" prefWidth="348.0" />
       <Button id="WM" contentDisplay="CENTER" layoutX="532.0" layoutY="379.0" mnemonicParsing="false" onAction="#Submit" prefHeight="41.0" prefWidth="102.0" stylesheets="@Styling.css" text="Done">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="19.0" />
@@ -76,7 +76,7 @@
             <SepiaTone />
          </effect>
       </Button>
-      <Label fx:id="NameLabel" layoutX="159.0" layoutY="79.0" prefHeight="60.0" prefWidth="371.0" text="Enter Your Name">
+      <Label fx:id="NameLabel" layoutX="151.0" layoutY="49.0" prefHeight="60.0" prefWidth="371.0" text="Enter Your Name">
          <font>
             <Font name="Berlin Sans FB Bold" size="44.0" />
          </font>

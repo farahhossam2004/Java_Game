@@ -38,7 +38,7 @@ public class NewGameSceneController implements Initializable {
     String name;
 
 
-
+    
 
     //============================================================
 
@@ -112,5 +112,6 @@ public class NewGameSceneController implements Initializable {
                 ex.printStackTrace();
             }
         });
+            TextNameArea.setPromptText("Enter Your Name Here ");
     }
 }
