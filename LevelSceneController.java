@@ -26,6 +26,8 @@ public class LevelSceneController {
     private Scene scene;
     private Parent root;
 
+    @FXML
+    private Button HomePageButton;
 
     Random random = new Random();
 
@@ -72,6 +74,15 @@ public class LevelSceneController {
 
     public void initialize() {
         
+        // To Home Page
+        HomePageButton.setOnAction(e -> {
+            try {
+                HelpersController.SwitchToHomeScene(e);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
+
 // Assuming you have imported the necessary classes and initialized the buttons (Level1, Level2, etc.)
 for (int i = 1; i < 6; i++) {
     if (PersonManagment.SearchForLevel(i, PersonManagment.GetPlayingPerson()) == 1) {
@@ -121,17 +132,8 @@ for (int i = 1; i < 6; i++) {
         }
     }
 
-    //========================================================
+//========================================================
 
-    //Back to home Scene Button 
-    public void SwitchToHomeScene(ActionEvent e)throws IOException{
-        PersonManagment.SetplayingPerson(null);
-        root = FXMLLoader.load(getClass().getResource("main.fxml"));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene= new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
 
     //============================================================
     // button to level 1 scene

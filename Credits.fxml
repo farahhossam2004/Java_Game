@@ -14,7 +14,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="799.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CreditsController">
    <children>
       <ImageView fitHeight="479.0" fitWidth="805.0" layoutY="-14.0" pickOnBounds="true">
@@ -104,7 +103,7 @@
             <Image url="@Images/character%20(2).png" />
          </image>
       </ImageView>
-      <Button id="shiny" layoutX="687.0" layoutY="381.0" mnemonicParsing="false" onAction="#SwitchToHomeScene" prefHeight="54.0" prefWidth="94.0" stylesheets="@stylesheet.css" text="Back">
+      <Button id="shiny" fx:id="HomePageButton" layoutX="687.0" layoutY="381.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="94.0" stylesheets="@stylesheet.css" text="Back">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

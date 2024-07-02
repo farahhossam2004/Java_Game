@@ -1,9 +1,13 @@
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
+import javafx.fxml.Initializable;
+
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,11 +18,13 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class NewGameSceneController {
+public class NewGameSceneController implements Initializable {
     
     private Stage stage ;
-    private Scene scene;
-    private Parent root;
+    
+
+    @FXML
+    private Button HomePageButton;
 
     @FXML
     private Button DoneButton;
@@ -33,17 +39,6 @@ public class NewGameSceneController {
 
 
 
-//=================================================
-
-    //Back to home Scene Button 
-    public void SwitchToHomeScene(ActionEvent e)throws IOException{
-        PersonManagment.SetplayingPerson(null);
-        root = FXMLLoader.load(getClass().getResource("main.fxml"));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene= new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
 
     //============================================================
 
@@ -62,11 +57,7 @@ public class NewGameSceneController {
             PersonManagment.GetAllPersons().add(person); // b add el person dh ll array bta3 el persons f person managment
             PersonManagment.SetplayingPerson(person); // b set b2a el playing person el3ndy blna lsa md5lo dh 
 
-            root = FXMLLoader.load(getClass().getResource("LevelScene.fxml"));
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            scene= new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+            HelpersController.SwitchToLevelScene(event); // to switch to levelScene
         }
     }
 
@@ -109,5 +100,17 @@ public class NewGameSceneController {
     public void setStage(Stage stagee)
     {
         this.stage = stagee;
+    }
+
+    //=================================================================
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        HomePageButton.setOnAction(e -> {
+            try {
+                HelpersController.SwitchToHomeScene(e);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
     }
 }

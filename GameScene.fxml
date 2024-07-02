@@ -94,7 +94,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button id="WM" layoutX="231.0" layoutY="340.0" mnemonicParsing="false" onAction="#SwitchToHomeScene" prefHeight="47.0" prefWidth="194.0" stylesheets="@Styling.css" text="Home page">
+      <Button id="WM" fx:id="HomePageButton" layoutX="231.0" layoutY="340.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="194.0" stylesheets="@Styling.css" text="Home page">
          <font>
             <Font name="Bodoni MT Black Italic" size="25.0" />
          </font>

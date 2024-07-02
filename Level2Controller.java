@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.function.Consumer;
-
 import javafx.animation.FadeTransition;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
@@ -20,6 +19,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -54,6 +54,9 @@ public class Level2Controller implements Initializable {
     @FXML
     private Text Level2Score;
 
+    @FXML
+    private Button BackToLevels;
+
 //=============================================================
     // Load the sound effect
 AudioClip sound = new AudioClip(getClass().getResource("Sound/SwordSound.mp3").toString());
@@ -72,19 +75,6 @@ AudioClip BombSound = new AudioClip(getClass().getResource("Sound/Bomb.mp3").toS
 
     public static void setStage(Stage stagee) {
         stage = stagee;
-    }
-    
-    @FXML
-    void back(ActionEvent e) throws IOException {
-        
-        if(SettingsController.GetCheckBoxStatue()) //====> For Music
-            MusicControllerMedia.playMedia();
-        
-        timeline.stop();
-        root = FXMLLoader.load(getClass().getResource("LevelScene.fxml"));
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
     }
 
     //====================================================================================
@@ -121,6 +111,16 @@ AudioClip BombSound = new AudioClip(getClass().getResource("Sound/Bomb.mp3").toS
     // initialize method
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        
+        BackToLevels.setOnAction(e -> {
+            try {
+                HelpersController.back(e);
+                timeline.stop();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
+
         MusicControllerMedia.pauseMedia();
         timer.setText(time.getLevelTime());
         timeline.setCycleCount((time.getMin() * 60) + time.getSec());
@@ -347,7 +347,7 @@ private void generateBombImages(int numberOfImages) {
                 e1.printStackTrace();
             }
         }, t -> {try {
-            back(t);
+            HelpersController.back(t);
         } catch (IOException e1) {
             e1.printStackTrace();
         }});
@@ -367,7 +367,7 @@ private void generateBombImages(int numberOfImages) {
             }
         }, t -> {
             try {
-                back(t);
+                HelpersController.back(t);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

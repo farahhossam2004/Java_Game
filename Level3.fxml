@@ -118,7 +118,7 @@
             </LinearGradient>
          </fill>
       </Text>
-      <Button id="shiny" layoutX="313.0" layoutY="21.0" mnemonicParsing="false" onAction="#back" prefHeight="36.0" prefWidth="72.0" stylesheets="@stylesheet.css" text="back" textFill="#df0000">
+      <Button id="shiny" fx:id="BackToLevels" layoutX="313.0" layoutY="21.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="72.0" stylesheets="@stylesheet.css" text="back" textFill="#df0000">
          <effect>
             <Glow />
          </effect>

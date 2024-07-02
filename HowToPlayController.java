@@ -1,21 +1,17 @@
 import java.io.IOException;
-
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.animation.ScaleTransition;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class HowToPlayController {
+public class HowToPlayController implements Initializable {
 
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
+    @FXML
+    private Button HomePageButton;
 
     @FXML
     private ImageView apple;
@@ -41,25 +37,7 @@ public class HowToPlayController {
     @FXML
     private ImageView wm;
     
-    public void SwitchToHomeScene(ActionEvent e)throws IOException{
-        PersonManagment.SetplayingPerson(null);
-        root = FXMLLoader.load(getClass().getResource("main.fxml"));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene= new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void initialize(){
-        applyTransitions(apple);
-        applyTransitions(banana);
-        applyTransitions(bomb);
-        applyTransitions(greeng);
-        applyTransitions(kiwi);
-        applyTransitions(orange);
-        applyTransitions(redgrappes);
-        applyTransitions(wm);
-    }
+    
 
     private void applyTransitions(ImageView img)
     {
@@ -72,5 +50,28 @@ public class HowToPlayController {
         scaleTransition.setAutoReverse(true);
 
         scaleTransition.playFromStart();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        applyTransitions(apple);
+        applyTransitions(banana);
+        applyTransitions(bomb);
+        applyTransitions(greeng);
+        applyTransitions(kiwi);
+        applyTransitions(orange);
+        applyTransitions(redgrappes);
+        applyTransitions(wm);
+
+
+        //Switch to homebutton
+        HomePageButton.setOnAction(e -> {
+            try {
+                HelpersController.SwitchToHomeScene(e);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
+
     }
 }

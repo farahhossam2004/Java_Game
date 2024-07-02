@@ -124,7 +124,7 @@
          </effect>
       </Button>
       <Separator layoutX="71.0" layoutY="62.0" prefHeight="6.0" prefWidth="389.0" />
-      <Button id="WM" layoutX="509.0" layoutY="449.0" mnemonicParsing="false" onAction="#SwitchToHomeScene" prefHeight="36.0" prefWidth="122.0" stylesheets="@Styling.css" text="Home">
+      <Button id="WM" fx:id="HomePageButton" layoutX="509.0" layoutY="449.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="122.0" stylesheets="@Styling.css" text="Home">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="19.0" />
          </font>
