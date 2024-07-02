@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="799.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.main.myapp.controller.HowToPlayController">
+   <children>
+      <ImageView fitHeight="469.0" fitWidth="814.0" layoutX="-7.0" layoutY="-9.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../resources/Images/background.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="240.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How To Play ?" wrappingWidth="320.67913818359375">
+         <font>
+            <Font name="Agency FB Bold" size="62.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="0.6856060443502483">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.02222222276031971" blue="0.02222222276031971" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.9666666388511658" green="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Text>
+      <Text fill="#eaef51" layoutX="62.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-The goal of the game is to slice as many fruits as you can while avoiding the bombs." textAlignment="CENTER" wrappingWidth="674.9367294311523">
+         <font>
+            <Font name="Arial Black" size="23.0" />
+         </font>
+      </Text>
+      <Text layoutX="32.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scoring System:" wrappingWidth="236.1585922241211">
+         <font>
+            <Font name="Agency FB" size="41.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.799352765083313" green="1.0" blue="0.029999999329447746" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <Bloom />
+         </effect>
+      </Text>
+      <ImageView fx:id="apple" fitHeight="76.0" fitWidth="60.0" layoutX="32.0" layoutY="307.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/Images/fruits/apple.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="banana" fitHeight="65.0" fitWidth="60.0" layoutX="565.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/Images/fruits/banana.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bomb" fitHeight="86.0" fitWidth="84.0" layoutX="565.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/Images/fruits/bomb.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="greeng" fitHeight="76.0" fitWidth="60.0" layoutX="398.0" layoutY="238.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/Images/fruits/greenGrapes.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="kiwi" fitHeight="66.0" fitWidth="60.0" layoutX="398.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/Images/fruits/kiwi.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="orange" fitHeight="65.0" fitWidth="60.0" layoutX="32.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/Images/fruits/orange.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="redgrappes" fitHeight="76.0" fitWidth="68.0" layoutX="215.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true" rotate="34.1">
+         <image>
+            <Image url="@../../resources/Images/fruits/redGrapes.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="wm" fitHeight="76.0" fitWidth="75.0" layoutX="211.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true" rotate="68.9">
+         <image>
+            <Image url="@../../resources/Images/fruits/watermelon.png" />
+         </image>
+      </ImageView>
+      <Line endX="-100.00003051757812" endY="104.80001831054688" layoutX="301.0" layoutY="258.0" startX="-100.00003051757812" startY="-12.600006103515625">
+         <stroke>
+            <LinearGradient endX="1.0" endY="0.6856060443502483">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.02222222276031971" blue="0.02222222276031971" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="0.9631979465484619" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Line>
+      <Line endX="-100.00003051757812" endY="104.99996948242188" layoutX="484.0" layoutY="257.0" startX="-100.00003051757812" startY="-17.399993896484375">
+         <stroke>
+            <LinearGradient endX="1.0" endY="0.6856060443502483">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.02222222276031971" blue="0.02222222276031971" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="0.9631979465484619" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Line>
+      <Line endX="-100.00006103515625" endY="104.19998168945312" layoutX="660.0" layoutY="257.0" startX="-100.00006103515625" startY="-15.0">
+         <stroke>
+            <LinearGradient endX="1.0" endY="0.6856060443502483">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.02222222276031971" blue="0.02222222276031971" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="0.9631979465484619" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Line>
+      <Text fill="#e0ff56" layoutX="162.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3" wrappingWidth="19.74652099609375">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="44.0" />
+         </font>
+         <effect>
+            <Bloom />
+         </effect>
+      </Text>
+      <Text layoutX="106.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="=" wrappingWidth="29.00897216796875">
+         <font>
+            <Font size="56.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="0.6856060443502483" startX="0.799242425145525" startY="0.39015148625229346">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.02222222276031971" blue="0.02222222276031971" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="0.9631979465484619" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <Bloom />
+         </effect>
+      </Text>
+      <Text fill="#e0ff56" layoutX="699.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6" wrappingWidth="19.74652099609375">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="44.0" />
+         </font>
+         <effect>
+            <Bloom />
+         </effect>
+      </Text>
+      <Text layoutX="288.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="=" wrappingWidth="29.00897216796875">
+         <font>
+            <Font size="56.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="0.6856060443502483" startX="0.799242425145525" startY="0.39015148625229346">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.02222222276031971" blue="0.02222222276031971" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="0.9631979465484619" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <Bloom />
+         </effect>
+      </Text>
+      <Text fill="#e0ff56" layoutX="515.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5" wrappingWidth="19.74652099609375">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="44.0" />
+         </font>
+         <effect>
+            <Bloom />
+         </effect>
+      </Text>
+      <Text fill="#e0ff56" layoutX="345.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4" wrappingWidth="19.74652099609375">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="44.0" />
+         </font>
+         <effect>
+            <Bloom />
+         </effect>
+      </Text>
+      <Text fill="#d93319" layoutX="699.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-10" wrappingWidth="110.14654541015625">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="44.0" />
+         </font>
+         <effect>
+            <Bloom />
+         </effect>
+      </Text>
+      <Text fill="#e0ff56" layoutX="515.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5" wrappingWidth="19.74652099609375">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="44.0" />
+         </font>
+         <effect>
+            <Bloom />
+         </effect>
+      </Text>
+      <Text fill="#e0ff56" layoutX="345.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5" wrappingWidth="19.74652099609375">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="44.0" />
+         </font>
+         <effect>
+            <Bloom />
+         </effect>
+      </Text>
+      <Text fill="#e0ff56" layoutX="162.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4" wrappingWidth="19.74652099609375">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="44.0" />
+         </font>
+         <effect>
+            <Bloom />
+         </effect>
+      </Text>
+      <Text layoutX="106.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="=" wrappingWidth="29.00897216796875">
+         <font>
+            <Font size="56.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="0.6856060443502483" startX="0.799242425145525" startY="0.39015148625229346">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.02222222276031971" blue="0.02222222276031971" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="0.9631979465484619" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <Bloom />
+         </effect>
+      </Text>
+      <Text layoutX="288.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="=" wrappingWidth="29.00897216796875">
+         <font>
+            <Font size="56.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="0.6856060443502483" startX="0.799242425145525" startY="0.39015148625229346">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.02222222276031971" blue="0.02222222276031971" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="0.9631979465484619" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <Bloom />
+         </effect>
+      </Text>
+      <Text layoutX="464.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0" text="=" wrappingWidth="29.00897216796875">
+         <font>
+            <Font size="56.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="0.6856060443502483" startX="0.799242425145525" startY="0.39015148625229346">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.02222222276031971" blue="0.02222222276031971" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="0.9631979465484619" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <Bloom />
+         </effect>
+      </Text>
+      <Text layoutX="464.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="=" wrappingWidth="29.00897216796875">
+         <font>
+            <Font size="56.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="0.6856060443502483" startX="0.799242425145525" startY="0.39015148625229346">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.02222222276031971" blue="0.02222222276031971" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="0.9631979465484619" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <Bloom />
+         </effect>
+      </Text>
+      <Text layoutX="645.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="=" wrappingWidth="29.00897216796875">
+         <font>
+            <Font size="56.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="0.6856060443502483" startX="0.799242425145525" startY="0.39015148625229346">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.02222222276031971" blue="0.02222222276031971" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="0.9631979465484619" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <Bloom />
+         </effect>
+      </Text>
+      <Text layoutX="645.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="=" wrappingWidth="29.00897216796875">
+         <font>
+            <Font size="56.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="0.6856060443502483" startX="0.799242425145525" startY="0.39015148625229346">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.02222222276031971" blue="0.02222222276031971" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="0.9631979465484619" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <Bloom />
+         </effect>
+      </Text>
+      <Button id="shiny" fx:id="HomePageButton" layoutX="672.0" layoutY="389.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="110.0" stylesheets="@../../resources/css/stylesheet.css" text="Back">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

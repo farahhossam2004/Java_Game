@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="homeback" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="686.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.main.myapp.controller.GameSceneControlller">
+   <children>
+      <ImageView fx:id="imageview" fitHeight="471.0" fitWidth="697.0" layoutX="-2.0" layoutY="-8.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../resources/Images/background.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="171.0" layoutY="37.0" prefHeight="60.0" prefWidth="331.0" text="Choose A Game">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="44.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9368420839309692" green="0.10756335407495499" blue="0.10756335407495499" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.10920000076293945" green="0.5199999809265137" blue="0.365168035030365" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Separator layoutX="128.0" layoutY="105.0" prefHeight="0.0" prefWidth="411.0" />
+      <Button id="shiny" layoutX="79.0" layoutY="211.0" mnemonicParsing="false" onAction="#SwitchtoNewGameScene" prefHeight="58.0" prefWidth="194.0" stylesheets="@../../resources/css/stylesheet.css" text="New Game">
+         <font>
+            <Font name="Bodoni MT Black Italic" size="43.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9368420839309692" green="0.10756335407495499" blue="0.10756335407495499" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.09210526198148727" blue="0.7894737124443054" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <Glow />
+         </effect>
+      </Button>
+      <Button id="shiny" layoutX="409.0" layoutY="211.0" mnemonicParsing="false" onAction="#SwitchtoLoadGameScene" prefHeight="58.0" prefWidth="194.0" stylesheets="@../../resources/css/stylesheet.css" text="Load Game">
+         <font>
+            <Font name="Bodoni MT Black Italic" size="17.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9368420839309692" green="0.10756335407495499" blue="0.10756335407495499" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.09210526198148727" blue="0.7894737124443054" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button id="WM" fx:id="HomePageButton" layoutX="231.0" layoutY="340.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="194.0" stylesheets="@../../resources/css/Styling.css" text="Home page">
+         <font>
+            <Font name="Bodoni MT Black Italic" size="25.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9368420839309692" green="0.10756335407495499" blue="0.10756335407495499" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.09210526198148727" blue="0.7894737124443054" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <Bloom threshold="0.89" />
+         </effect>
+      </Button>
+      
+   </children>
+</AnchorPane>
