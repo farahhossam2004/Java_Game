@@ -26,7 +26,7 @@ public class DataManager {
                     else if(counter == 1)
                         Data += "-"+String.valueOf(PersonManagment.GetAllPersons().get(i).GetAllPersonLevels().get(j).GetLevelID())+"-"+ String.valueOf(PersonManagment.GetAllPersons().get(i).GetAllPersonLevels().get(j).GetLevelScore());
                     else 
-                    Data += String.valueOf(PersonManagment.GetAllPersons().get(i).GetAllPersonLevels().get(j).GetLevelID())+"-"+ String.valueOf(PersonManagment.GetAllPersons().get(i).GetAllPersonLevels().get(j).GetLevelScore());
+                    Data += String.valueOf(PersonManagment.GetAllPersons().get(i).GetAllPersonLevels().get(j).GetLevelID())+"-"+ String.valueOf(PersonManagment.GetAllPersons().get(i).GetAllPersonLevels().get(j).GetLevelScore());;
             }
 
             writeToFile(Data); // write the data 
