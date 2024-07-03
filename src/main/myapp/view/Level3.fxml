@@ -66,7 +66,7 @@
             <Font size="28.0" />
          </font>
       </Text>
-      <ImageView fitHeight="75.0" fitWidth="61.0" layoutX="600.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Clockimage" fitHeight="75.0" fitWidth="61.0" layoutX="600.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../resources/Images/alarm.png" />
          </image>
@@ -126,7 +126,28 @@
             </LinearGradient>
          </fill>
       </Text>
-      <Text layoutX="19.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level 3" wrappingWidth="172.28668212890625">
+      <Text layoutX="19.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level " wrappingWidth="172.28668212890625">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="54.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.15000000596046448" green="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Text>
+      <Text fx:id="LevelNumber" layoutX="143.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" 3" wrappingWidth="53.387451171874886">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="54.0" />
          </font>

@@ -66,7 +66,7 @@
             <Font size="28.0" />
          </font>
       </Text>
-      <ImageView fitHeight="75.0" fitWidth="61.0" layoutX="610.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Clockimage" fitHeight="75.0" fitWidth="61.0" layoutX="610.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../resources/Images/alarm.png" />
          </image>
@@ -100,7 +100,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Text layoutX="19.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level 2" wrappingWidth="172.28668212890625">
+      <Text layoutX="19.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level " wrappingWidth="172.28668212890625">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="54.0" />
          </font>
@@ -141,6 +141,27 @@
                   <Stop offset="1.0">
                      <color>
                         <Color red="0.507614254951477" green="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Text>
+      <Text fx:id="LevelNumber" layoutX="150.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" 2" wrappingWidth="61.0">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="54.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.15000000596046448" green="1.0" />
                      </color>
                   </Stop>
                </stops>

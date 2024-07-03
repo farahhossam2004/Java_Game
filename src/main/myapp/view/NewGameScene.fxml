@@ -17,7 +17,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="799.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.main.myapp.controller.NewGameSceneController">
    <children>
-      <ImageView fitHeight="450.0" fitWidth="811.0" pickOnBounds="true">
+      <ImageView fitHeight="459.0" fitWidth="813.0" layoutX="-2.0" pickOnBounds="true">
          <image>
             <Image url="@../../resources/Images/background.png" />
          </image>

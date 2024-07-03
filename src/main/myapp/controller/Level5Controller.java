@@ -11,6 +11,7 @@ import javafx.animation.FadeTransition;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.RotateTransition;
+import javafx.animation.ScaleTransition;
 import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.beans.property.BooleanProperty;
@@ -59,6 +60,13 @@ public class Level5Controller implements Initializable {
 
     @FXML
     private Button BackToLevels;
+
+    @FXML
+    private Text LevelNumber;
+
+    @FXML
+    private ImageView Clockimage;
+
 
 //===================================================================
     // Load the sound effect
@@ -119,7 +127,25 @@ AudioClip BombSound = new AudioClip(getClass().getResource("../../resources/Soun
     // initialize method
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+        ScaleTransition scaleTransition = new ScaleTransition(Duration.millis(2000), LevelNumber);
+            scaleTransition.setFromX(1.0);
+            scaleTransition.setFromY(1.0);
+            scaleTransition.setToX(1.6);
+            scaleTransition.setToY(1.4);
+            scaleTransition.setCycleCount(2);
+            scaleTransition.setAutoReverse(true);
+
+            ScaleTransition scaleTransition2 = new ScaleTransition(Duration.millis(2000), Clockimage);
+            scaleTransition2.setFromX(1.0);
+            scaleTransition2.setFromY(1.0);
+            scaleTransition2.setToX(1.2);
+            scaleTransition2.setToY(1.2);
+            scaleTransition2.setCycleCount(ScaleTransition.INDEFINITE);
+            scaleTransition2.setAutoReverse(true);
+
+            scaleTransition2.playFromStart();
+            scaleTransition.playFromStart();
+
         BackToLevels.setOnAction(e -> {
             try {
                 HelpersController.back(e);
@@ -152,7 +178,7 @@ AudioClip BombSound = new AudioClip(getClass().getResource("../../resources/Soun
             imageView.setFitHeight(80); // Set height to 50 pixels
 //========================
             // Set random position for each image
-            imageView.setX(random.nextInt(362) + 132); // Adjust for image width
+            imageView.setX(random.nextInt(572) + 94); // Generate x position from 94 to 665
             imageView.setY(447); // Adjust for image height
 //=========================
 
@@ -245,7 +271,7 @@ private void generateBombImages(int numberOfImages) {
         imageView.setFitHeight(80); // Set height to 50 pixels
 //========================
         // Set random position for each image
-        imageView.setX(random.nextInt(362) + 132); // Adjust for image width
+        imageView.setX(random.nextInt(572) + 94); // Generate x position from 94 to 665
         imageView.setY(447); // Adjust for image height
 //=========================
         // to change the image of fruit into sliced one and fade in case of mouse clicking 
@@ -302,7 +328,7 @@ private void generateBombImages(int numberOfImages) {
         
         
         // Check the x position and set the direction of movement
-        if (imageView.getX() > 323) {
+        if (imageView.getX() > 364) {
             // Move to the left side
             transition.setByX(-random.nextInt(maxWidth / 2) - maxWidth / 3);
         } else {
