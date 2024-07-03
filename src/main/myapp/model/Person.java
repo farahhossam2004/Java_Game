@@ -34,9 +34,6 @@ public class Person {
         return Score.get();
     }
 
-    public int GetPersonMaxLevel(){
-        return this.maxLvl;
-    }
 
     public StringProperty NameProperty(){
         return Name;

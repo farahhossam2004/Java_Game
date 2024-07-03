@@ -23,6 +23,8 @@ import javafx.scene.layout.AnchorPane;
 
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import src.main.myapp.model.DataManager;
+
 
 public class SceneController {
 
@@ -129,6 +131,7 @@ public class SceneController {
 //============================================================
 
     public void ExitButton(ActionEvent e)throws IOException{
+        DataManager.writeFileData();
         Platform.exit();
     }
 
