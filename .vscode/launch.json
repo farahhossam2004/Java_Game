@@ -5,9 +5,9 @@
             "type": "java",
             "name": "Main",
             "request": "launch",
-            "mainClass": "myapp.Main",
+            "mainClass": "src.main.myapp.Main",
             "projectName": "Java_Game_ed49caf5",
-            "vmArgs": "--module-path \"D:\\javafx-sdk-22.0.1\\lib\" --add-modules javafx.controls,javafx.fxml,javafx.media",
+            "vmArgs": "--module-path \"E:\\javafx-sdk-22\\lib\" --add-modules javafx.controls,javafx.fxml,javafx.media",
             "args": ""
         }
     ]
