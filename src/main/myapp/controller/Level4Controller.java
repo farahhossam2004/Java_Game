@@ -435,8 +435,8 @@ private void generateBombImages(int numberOfImages) {
 
             stagee.setScene(new Scene(roott));
             stagee.setResizable(false);
-            stagee.setX(500);
-            stagee.setY(250);
+            stagee.setX(stage.getX() + (700/4d));
+            stagee.setY(stage.getY() + (500/4d));
 
             // 3shan lma yzhr l alert akhly l scene bta3t l level l warah tb2a faded keda y3ne l brightness bta3taha watya 
             ColorAdjust colorAdjust = new ColorAdjust(); 
@@ -474,8 +474,8 @@ private void generateBombImages(int numberOfImages) {
             
             stagee.setScene(new Scene(roott));
             stagee.setResizable(false);
-            stagee.setX(500);
-            stagee.setY(250);
+            stagee.setX(stage.getX() + (700/4d));
+            stagee.setY(stage.getY() + (500/4d));
 
             ColorAdjust colorAdjust = new ColorAdjust();
             colorAdjust.setBrightness(-0.5);

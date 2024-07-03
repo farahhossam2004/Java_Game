@@ -83,8 +83,8 @@ public class NewGameSceneController implements Initializable {
 
             stagee.setScene(new Scene(roott));
             stagee.setResizable(false);
-            stagee.setX(540);
-            stagee.setY(250);
+            stagee.setX(stage.getX() + (790/4d));
+            stagee.setY(stage.getY() + (450/4d));
 
             ColorAdjust colorAdjust = new ColorAdjust();
             colorAdjust.setBrightness(-0.5);
