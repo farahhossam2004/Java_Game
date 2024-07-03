@@ -1,5 +1,6 @@
 package src.main.myapp.model;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -59,4 +60,41 @@ public class DataManager {
     }
 //===================================================================================
 
+    // Read the File
+    public static void ReadFile(){
+        try {
+            FileReader file = new FileReader(FILE);
+            String x = "";
+            int data = file.read();
+
+            while(data != -1){
+                x += (char)data;
+                data = file.read();
+            }
+            file.close();
+        
+            //===================================
+            String players[] = x.split("\n");
+
+            for(String player : players){
+
+                player = player.trim();
+                if(player.matches("^[a-zA-Z]+\\d+(-\\d+)+$")){
+
+                    String playerData[] = player.split("-");
+
+                    Person person = new Person(playerData[0], Integer.parseInt(playerData[1]));
+                    PersonManagment.GetAllPersons().add(person);
+
+                    for(int i = 2; i < playerData.length; i++){
+                        Level lvl = new Level(Integer.parseInt(playerData[i]));
+                        person.GetAllPersonLevels().add(lvl);
+                    }
+                }
+            }
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
