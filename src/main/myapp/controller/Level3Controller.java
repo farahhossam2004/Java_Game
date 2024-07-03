@@ -74,6 +74,7 @@ public class Level3Controller implements Initializable {
     // Load the sound effect
     AudioClip sound = new AudioClip(getClass().getResource("../../resources/Sound/SwordSound.mp3").toString());
     AudioClip BombSound = new AudioClip(getClass().getResource("../../resources/Sound/Bomb.mp3").toString());
+    AudioClip ClockSound = new AudioClip(getClass().getResource("../../resources/Sound/Clock.mp3").toString());
 //=================================================================
     // List of fruit only without bomb 
     private List<ImageView> FruitImages = new ArrayList<>();
@@ -201,14 +202,17 @@ public class Level3Controller implements Initializable {
 
                     FruitImages.remove(imageView); // to remove the fruit from the array of fruit 
                     
-                    if(FruitImages.isEmpty()){ // if the array empty and no fruit image left
-                        if(UserScore>=levelScore)
+                    if(FruitImages.isEmpty()){
+                        if(UserScore>=levelScore){
+                            ClockSound.stop();
                             LevelPassed(); //================================> alrtat hnaaa
-                        else
+                        }else{
+                            ClockSound.stop();
                             LevelFailed(); // ===================================> alertat hnnaaaa
-                    
+                        }
                     timeline.stop();
                     }
+
                 });
                 fade.play(); //fade the clicked image
 //==========================
@@ -345,7 +349,10 @@ private void generateBombImages(int numberOfImages) {
             e -> {
                 time.oneSecondPassed();
                 timer.setText(time.getLevelTime());
-                if(time.getLevelTime().equals("0:0")){
+                
+                if( time.getLevelTime().equals("0:6")){
+                    ClockSound.play();
+                }else if(time.getLevelTime().equals("0:0")){
                     // if user passed the level
                     if(UserScore >= levelScore)
                     {
