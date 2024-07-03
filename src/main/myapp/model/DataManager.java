@@ -22,11 +22,11 @@ public class DataManager {
 
             for(int j =0 ; j<PersonManagment.GetAllPersons().get(i).GetAllPersonLevels().size();j++ , counter--){
                     if(counter != 1 )
-                        Data += "-" + String.valueOf(PersonManagment.GetAllPersons().get(i).GetAllPersonLevels().get(j).GetLevelID());
+                        Data += "-" + String.valueOf(PersonManagment.GetAllPersons().get(i).GetAllPersonLevels().get(j).GetLevelID())+"-"+ String.valueOf(PersonManagment.GetAllPersons().get(i).GetAllPersonLevels().get(j).GetLevelScore());
                     else if(counter == 1)
-                        Data += "-"+String.valueOf(PersonManagment.GetAllPersons().get(i).GetAllPersonLevels().get(j).GetLevelID());
+                        Data += "-"+String.valueOf(PersonManagment.GetAllPersons().get(i).GetAllPersonLevels().get(j).GetLevelID())+"-"+ String.valueOf(PersonManagment.GetAllPersons().get(i).GetAllPersonLevels().get(j).GetLevelScore());
                     else 
-                    Data += String.valueOf(PersonManagment.GetAllPersons().get(i).GetAllPersonLevels().get(j).GetLevelID());
+                    Data += String.valueOf(PersonManagment.GetAllPersons().get(i).GetAllPersonLevels().get(j).GetLevelID())+"-"+ String.valueOf(PersonManagment.GetAllPersons().get(i).GetAllPersonLevels().get(j).GetLevelScore());
             }
 
             writeToFile(Data); // write the data 
