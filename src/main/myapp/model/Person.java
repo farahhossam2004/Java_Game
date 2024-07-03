@@ -24,6 +24,13 @@ public class Person {
         this.Score = new SimpleIntegerProperty(0);
     }
 
+    // overload constructor 
+    public Person(String name, int score){
+        this.Name = new SimpleStringProperty(name);
+        this.Score = new SimpleIntegerProperty(score);
+        idcounter++;
+    }
+
  // Getters
 
     public String GetPersonName(){
