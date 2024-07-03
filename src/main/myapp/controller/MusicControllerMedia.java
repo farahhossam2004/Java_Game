@@ -16,6 +16,11 @@ public class MusicControllerMedia {
         return mediaPlayer;
     }
 
+    public static void playMediaVolume(double volume){
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.setVolume(volume);
+    }
+
     public static void playMedia() {
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         mediaPlayer.play();

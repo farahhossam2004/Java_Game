@@ -1,4 +1,6 @@
 package src.main.myapp.controller;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -6,6 +8,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.net.URL;
@@ -25,15 +30,33 @@ public class SettingsController implements Initializable {
     private Label MusicField;
 
     @FXML
+    private ImageView MusicImage;
+
+    @FXML
+    private Slider SliderVolumeBar;
+
+    public static double LastSliderNumber=100;
+
+    //===================================================================================================
+    Image imageOn = new Image(getClass().getResourceAsStream("../../resources/Images/Music1.png"));
+    Image imageOff = new Image(getClass().getResourceAsStream("../../resources/Images/Muted.png"));
+    //===================================================================================================
+
+
+    @FXML
     void ChangeMusic(ActionEvent event) {
         if (MusicCheckBox.isSelected()) {
-            MusicField.setText("ON");
+            MusicImage.setImage(imageOn);
             MusicControllerMedia.playMedia();
-            CheckBoxStatue = true; 
+            CheckBoxStatue = true;
+            SliderVolumeBar.setValue(100); 
+            LastSliderNumber=100;
         } else {
-            MusicField.setText("OFF");
+            MusicImage.setImage(imageOff);
             MusicControllerMedia.pauseMedia();
             CheckBoxStatue=false;
+            SliderVolumeBar.setValue(0);
+            LastSliderNumber=0;
         }
     }
 
@@ -41,11 +64,33 @@ public class SettingsController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         MusicCheckBox.setSelected(CheckBoxStatue); // Set the default state to selected
+        SliderVolumeBar.setValue(LastSliderNumber);
         if(CheckBoxStatue){
-            MusicField.setText("ON");
+            MusicImage.setImage(imageOn);
         }else{
-            MusicField.setText("OFF");
+            MusicImage.setImage(imageOff);
         }
+
+        SliderVolumeBar.valueProperty().addListener(new ChangeListener<Number>() {
+            double slidervalue;
+            @Override
+            public void changed(ObservableValue<? extends Number> arg0, Number arg1, Number arg2) {
+                slidervalue = SliderVolumeBar.getValue();
+                LastSliderNumber = slidervalue;
+                MusicControllerMedia.playMediaVolume((int)slidervalue);
+                if(slidervalue == 0){
+                    MusicImage.setImage(imageOff);
+                    CheckBoxStatue = false;
+                    MusicCheckBox.setSelected(CheckBoxStatue);
+                }else{
+                    MusicImage.setImage(imageOn);
+                    CheckBoxStatue = true;
+                    MusicCheckBox.setSelected(CheckBoxStatue);
+                    MusicControllerMedia.playMedia();
+                }
+            }
+            
+        });
 
         // Back To Home Scene
         HomePageButton.setOnAction(e -> {
