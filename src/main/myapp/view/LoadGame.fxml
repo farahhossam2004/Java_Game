@@ -15,14 +15,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.main.myapp.controller.LoadGameController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="799.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.main.myapp.controller.LoadGameController">
    <children>
-      <ImageView fitHeight="473.0" fitWidth="696.0" layoutX="-4.0" layoutY="-5.0" pickOnBounds="true">
+      <ImageView fitHeight="465.0" fitWidth="809.0" layoutX="-4.0" layoutY="-5.0" pickOnBounds="true">
          <image>
             <Image url="@../../resources/Images/background.png" />
          </image>
       </ImageView>
-      <Button id="WM" fx:id="levels" contentDisplay="CENTER" layoutX="523.0" layoutY="383.0" mnemonicParsing="false" onAction="#SelectPerson" prefHeight="42.0" prefWidth="111.0" stylesheets="@../../resources/css/Styling.css" text="Done">
+      <Button id="WM" fx:id="levels" contentDisplay="CENTER" layoutX="633.0" layoutY="383.0" mnemonicParsing="false" onAction="#SelectPerson" prefHeight="42.0" prefWidth="111.0" stylesheets="@../../resources/css/Styling.css" text="Done">
          <effect>
             <Bloom threshold="0.72" />
          </effect>
@@ -49,7 +49,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button id="WM" fx:id="back" contentDisplay="CENTER" layoutX="44.0" layoutY="383.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="111.0" stylesheets="@../../resources/css/Styling.css" text="Back">
+      <Button id="WM" fx:id="back" contentDisplay="CENTER" layoutX="60.0" layoutY="383.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="111.0" stylesheets="@../../resources/css/Styling.css" text="Back">
          <effect>
             <SepiaTone />
          </effect>
@@ -76,13 +76,13 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TableView id="tableview" fx:id="tableview" blendMode="LIGHTEN" cache="true" layoutX="10.0" layoutY="96.0" prefHeight="277.0" prefWidth="675.0" stylesheets="@../../resources/css/Styling.css">
+      <TableView id="tableview" fx:id="tableview" blendMode="LIGHTEN" cache="true" layoutX="29.0" layoutY="98.0" prefHeight="278.0" prefWidth="735.0" stylesheets="@../../resources/css/Styling.css">
         <columns>
-          <TableColumn id="column" fx:id="NameColumn" prefWidth="400.000036239624" resizable="false" sortable="false" text="Name" />
-          <TableColumn fx:id="scoreColumn" prefWidth="256.7999572753906" resizable="false" text="Score" />
+          <TableColumn id="column" fx:id="NameColumn" prefWidth="447.2000503540039" resizable="false" sortable="false" text="Name" />
+          <TableColumn fx:id="scoreColumn" prefWidth="272.7999572753906" resizable="false" text="Score" />
         </columns>
       </TableView>
-      <Text layoutX="120.0" layoutY="73.0" stroke="#e1e0e0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Your Name" textAlignment="CENTER" wrappingWidth="442.5448455810547">
+      <Text layoutX="179.0" layoutY="75.0" stroke="#e1e0e0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Your Name" textAlignment="CENTER" wrappingWidth="442.5448455810547">
          <fill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>

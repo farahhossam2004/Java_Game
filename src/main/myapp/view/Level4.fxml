@@ -12,19 +12,19 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="imageContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="435.0" prefWidth="698.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.main.myapp.controller.Level4Controller">
+<AnchorPane fx:id="imageContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="799.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.main.myapp.controller.Level4Controller">
    <children>
-      <ImageView fitHeight="454.0" fitWidth="713.0" layoutY="-7.0" pickOnBounds="true">
+      <ImageView fitHeight="465.0" fitWidth="807.0" layoutY="-7.0" pickOnBounds="true">
          <image>
             <Image url="@../../resources/Images/background.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="58.0" fitWidth="65.0" layoutX="45.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="58.0" fitWidth="65.0" layoutX="461.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../resources/Images/score.png" />
          </image>
       </ImageView>
-      <Text fx:id="score" layoutX="115.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="125.8869423866272">
+      <Text fx:id="score" layoutX="534.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="71.99999999999989">
          <font>
             <Font size="31.0" />
          </font>
@@ -45,9 +45,85 @@
             </LinearGradient>
          </fill>
       </Text>
-      <Text layoutX="14.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="level Score:">
+      <Text fx:id="Level4Score" layoutX="144.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100" wrappingWidth="72.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.949999988079071" green="0.07233480364084244" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.8166666626930237" green="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
          <font>
-            <Font size="25.0" />
+            <Font size="28.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="75.0" fitWidth="61.0" layoutX="616.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/Images/alarm.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="timer" layoutX="684.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="107.38909912109375">
+         <font>
+            <Font size="33.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.949999988079071" green="0.07233480364084244" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="0.970370352268219" blue="0.970370352268219" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Text>
+      <Button id="shiny" fx:id="BackToLevels" layoutX="340.0" layoutY="31.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="72.0" stylesheets="@../../resources/css/stylesheet.css" text="back" textFill="#df0000">
+         <effect>
+            <Glow />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Text layoutX="24.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level 4" wrappingWidth="172.28668212890625">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="54.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.15000000596046448" green="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Text>
+      <Text layoutX="24.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="level Score:">
+         <font>
+            <Font name="Berlin Sans FB" size="25.0" />
          </font>
          <fill>
             <LinearGradient endX="1.0" endY="1.0" startX="0.3749999990968994">
@@ -71,60 +147,5 @@
             </LinearGradient>
          </fill>
       </Text>
-      <Text fx:id="Level4Score" layoutX="153.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100" wrappingWidth="72.0">
-         <fill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.949999988079071" green="0.07233480364084244" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="1.0" green="0.970370352268219" blue="0.970370352268219" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </fill>
-         <font>
-            <Font size="28.0" />
-         </font>
-      </Text>
-      <ImageView fitHeight="75.0" fitWidth="61.0" layoutX="527.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../resources/Images/alarm.png" />
-         </image>
-      </ImageView>
-      <Text fx:id="timer" layoutX="605.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="107.38909912109375">
-         <font>
-            <Font size="33.0" />
-         </font>
-         <fill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.949999988079071" green="0.07233480364084244" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="1.0" green="0.970370352268219" blue="0.970370352268219" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </fill>
-      </Text>
-      <Button id="shiny" fx:id="BackToLevels" layoutX="313.0" layoutY="21.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="72.0" stylesheets="@../../resources/css/stylesheet.css" text="back" textFill="#df0000">
-         <effect>
-            <Glow />
-         </effect>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
    </children>
 </AnchorPane>
