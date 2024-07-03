@@ -11,10 +11,6 @@ public class Level {
         this.LevelScore=lvlscore;
     }
 
-    public Level(int id ){
-        this.id = id;
-    }
-
     public int GetLevelID(){
         return this.id;
     }

@@ -86,9 +86,10 @@ public class DataManager {
                     Person person = new Person(playerData[0], Integer.parseInt(playerData[1]));
                     PersonManagment.GetAllPersons().add(person);
 
-                    for(int i = 2; i < playerData.length; i++){
-                        Level lvl = new Level(Integer.parseInt(playerData[i]));
+                    for(int i = 2; i <= playerData.length/2; i++){
+                        Level lvl = new Level(Integer.parseInt(playerData[i+1]), Integer.parseInt(playerData[i]));
                         person.GetAllPersonLevels().add(lvl);
+                        i++;
                     }
                 }
             }
