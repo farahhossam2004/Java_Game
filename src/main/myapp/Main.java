@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import src.main.myapp.model.DataManager;
 
@@ -19,11 +20,14 @@ public class Main extends Application{
         
         try {
         DataManager.ReadFile();
+
+        Image icon = new Image(getClass().getResourceAsStream("../resources/Images/logo2.png"));
         Parent root = FXMLLoader.load(getClass().getResource("./view/Main.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setResizable(false);
         stage.setTitle("FruitZ");
+        stage.getIcons().add(icon);
         stage.setOnCloseRequest(event -> {DataManager.writeFileData();});
         stage.show();
 
