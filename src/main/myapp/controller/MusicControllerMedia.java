@@ -29,5 +29,6 @@ public class MusicControllerMedia {
     public static void pauseMedia() {
         mediaPlayer.pause();
     }
+
 }
 

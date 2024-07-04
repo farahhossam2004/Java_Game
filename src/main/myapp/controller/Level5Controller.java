@@ -301,8 +301,8 @@ private void generateBombImages(int numberOfImages) {
             // to calculate your score and from sliced image index will calculate it apple 0 banana 1  kiwi 2 orange 3
             // index based on the array of images to get the score u need from the fruit class
             UserScore =UserScore+Fruit.GetBombScore();
-            if(UserScore<0) // to check if the result is negative 
-                UserScore=0; // retart the score
+            //if(UserScore<0) // to check if the result is negative 
+                //UserScore=0; // retart the score
             score.setText(String.valueOf(UserScore));
         }
         });
